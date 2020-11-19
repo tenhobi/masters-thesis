@@ -3,7 +3,7 @@
 [![Actions status](https://github.com/tenhobi/masters-thesis/workflows/build/badge.svg)](https://github.com/tenhobi/masters-thesis/actions)
 [![License: MIT](https://img.shields.io/badge/license-CC%20BY--SA%204.0-blue.svg)](https://creativecommons.org/licenses/by-sa/4.0)
 
-## Bachelor's thesis
+## Master's thesis
 
 You can find the final version of the PDF in the [releases][] tab.
 

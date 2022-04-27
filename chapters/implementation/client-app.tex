@@ -119,7 +119,7 @@ That determines the position to which the block's \textquote*{shadow} should mov
 The state is updated, and Flutter declaratively redraws the command blocks, so the \textquote*{shadow} visually moves to the correct position.
 
 Iteration through all registered containers is used for the lookup of the nearest container.
-The current container's \mintinline{text}|RenderObject| or \ mintinline{text}|RenderBox|, respectively, is requested using \ mintinline{dart}|final containerRender = container.context.findRenderObject () and RenderBox;|.
+The current container's \mintinline{text}|RenderObject| or \mintinline{text}|RenderBox|, respectively, is requested using \mintinline{dart}|final containerRender = container.context.findRenderObject() as RenderBox;|.
 Then, as can be seen in the code \ref{listing:closest-container}, the position of the container is compared with the cursor position, and then, if the container is not part of a block (that is if the container is not a block subcommand), the nearest such container is found.
 A similar algorithm finds the nearest block below.
 

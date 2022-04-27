@@ -1,0 +1,266 @@
+\section{Analysis of the Game}
+\label{analysis:game}
+
+The game \emph{\myAppName} is an educational programming puzzle game that uses gamification methods to enhance its capabilities in educating children's programming concepts.
+
+The game should be accessible to a majority of users.
+Therefore it should be provided as a web and desktop application.
+These game versions should be equal in features, look-alike, and have the same synced content.
+Additionally, the game should be prepared for expanding to mobile devices, either using responsive web technologies or as dedicated programs.
+
+\subsection{Stories and Missions}
+\label{analysis:game:stories-and-missions}
+
+The game is built around the stories of Karel, the king, who must solve the problems plaguing his land and other adventures.
+In the stories, Karel must complete tasks and fight difficulties using the proper use of algorithms.
+He can move, put and grab marks, look around and determine if he should do some action or he can repeat them.
+He also has to be careful not to step into the woods, a lake, a wall, or outside his land.
+Making the game around stories should increase motivation to play, as suggested by conducted survey and mentioned articles.
+It is also an excellent way to connect game missions with storytelling and learning missions.
+
+Each story contains several missions.
+Each mission can be focused on storytelling, learning, or playing.
+As the player continues through the story,
+they learn new concepts and practice the skills by helping the king with his tasks.
+Storytelling missions aim to increase motivation to play because players will be motivated to learn about the characters.
+Learning missions aim to introduce players to new concepts or explain what they can use in the game or how games evaluate their competition.
+Game missions aim to provide players with a fun aspect.
+The game challenges players, who have to think, but their focus is to move or control their character, not focus on learning and practicing programming concepts.
+
+Story selection contains a name and a description of a story and its count of missions.
+Mission selection of a specific story contains its missions in order.
+Each mission also contains graphics representing its type; a book for a storytelling mission, a university hat for a learning mission, and a boat for a game mission.
+A game mission also contains additional statistics information in the form of crowns.
+Game missions can have up to three crowns; one -- the biggest -- for completing a mission, one for meeting the size criteria, and one for completing the speed criteria.
+
+\subsection{Game Missions}
+\label{analysis:game:game-missions}
+
+Game missions should offer multiple ways to solve a problem.
+Some can be easy and almost step-by-step.
+Some might be solved using loops or ifs to make the program more efficient or fast.
+
+For the prototype purpose, an initial story and its missions are made.
+Each game mission contains a game grid that shows and represents the current view of the game progress.
+It also contains a description view, a command panel view with a list of commands used to program the game, a command palette, and control buttons.
+Using commands, a player can alter the game, which updates the grid view, and the player can see how their character moves or does other things.
+Each command is also displayed with a mark on execution, indicating that that command is in use.
+Players can show or hide descriptions and reset, save, or run a game using control buttons.
+While a game is in progress, players can not alter the commands, but they can stop the running game. 
+
+There are only basic commands available for the initial story and its missions.
+Those commands are \mintinline{text}{move <direction>}, to move the charakter in a direction; \mintinline{text}{put mark}, to place a mark to a current cell; \mintinline{text}{grab mark}, to pick up mark from a current cell; \mintinline{text}{if <condition>} to conditionally execute inner commands; and \mintinline{text}{while}, to conditionally loop and execute inner commands.
+Used direction is initially \mintinline{text}{?}, meaning the player has to change it to a valid state.
+They can choose from \mintinline{text}{up}, \mintinline{text}{right}, \mintinline{text}{down}, and \mintinline{text}{left}.
+Similarly, the used condition is also initially \mintinline{text}{?}.
+Players can choose from conditions \mintinline{text}{can move up}, \mintinline{text}{can move right}, \mintinline{text}{can move down}, \mintinline{text}{can move left}, \mintinline{text}{can put mark}, and \mintinline{text}{can grab mark}.
+
+Players can pick and place commands from the command palette in the default place or into the commands' inner place if they have one.
+Commands also can be reordered by drag-and-drop gestures.
+The position of dragged commands has the same graphics but has half opacity.
+Commands dragged out of the palette do not have a position, but their position is synced after the first pass over the default or inner places.
+And they can be thrown away by dragging command away from the default or inner place.
+Commands dragged out have quarter opacity to signify that the command will be removed.
+
+As has been mentioned, the grid contains cells of different types.
+Some of the cells are walkable, and some of them are non-walkable.
+Walkable cells are empty, and players can put and grab marks from them.
+Non-walkable cells represent natural structures like walls, lakes, or forests.
+Players cannot walk to those cells; otherwise, they will throw an error.
+
+The game mission screen shows a status dialog after a running game finishes.
+The dialog is either with success or failure statuses.
+The failure dialog also shows a note of which specific error occurred.
+The error can represent invalid commands, invalid moves, invalid use of put-mark command, invalid use of grab-mark command, or exceeding the speed limit.
+
+A status dialog also shows statistics of speed and size attributes.
+The size attribute corresponds to the number of commands used.
+The speed attribute corresponds to the number of executed commands.
+They are both optional challenges for players to gain additional points.
+If the game does not meet the size or speed criteria, the dialog displays that attribute in a failure color.
+
+\subsection{Statistics}
+\label{analysis:game:statistics}
+
+Players can also show results from playing game missions.
+The statistics divide its view by a story.
+Each story then contains rows for each of its game missions containing a mission name, if the mission is completed, and what size and speed results they have.
+
+\subsection{Profile}
+\label{analysis:game:profile}
+
+Players can also display their profiles to check the used username, email address, or description.
+The corresponding screen should be the first screen they are introduced to after the registration.
+
+\subsection{Signing Up, In and Out}
+\label{analysis:game:sign-up-in-out}
+
+The game has a main menu containing different buttons that control navigation between screens.
+It consists of the main screen button, stories button, stats button, profile button, about-us button, and sign-out button.
+If the player is not signed in, the menu contains sign-up and sign-in buttons.
+
+To sign up, the player has to fill in the username, password, real name, email, and description text fields.
+After submitting the form, either by using the submit action or by clicking the submit button, signing up is done, and if no conflicts occur, the player is redirected to their profile screen.
+Similarly, the player must fill in the username and password to sign in.
+If the password and username match the player's record, the player is redirected to their profile screen.
+If any error occurs for both processes, a fail message is displayed.
+
+\subsection{Game Information}
+\label{analysis:game:game-information}
+
+The game must have a space to display information about the approach, contact, guidelines, help, info, press, privacy, and terms.
+It should all be on one screen or divided into connected subscreens.
+These screens should be accessible from the main menu.
+A small sub-menu with references to these screens should be on all screens if their design allows that.
+
+\subsection{Future Features}
+\label{analysis:game:future-features}
+
+Not every feature can be made for the prototype version.
+Therefore, other analyzed features suggested for future development are recognized in this section.
+
+\subsubsection{Game Mission}
+
+First, game missions will introduce more commands players can use.
+One of the first features that should be implemented in the future is the feature of creating separate function-like commands.
+That means that players will be able to create commands that can be reused both in the default command list, in other function-like commands, and even in the current function-like command to allow using programming constructs like recursion.
+These commands will be added to the command palette in a special section.
+Players will be able to update them after invoking a particular action to switch the default command list to the command's command list.
+
+Game missions should also introduce unique cells that can contain machines.
+Every machine can also add a set of commands that Karel can use, including conditions.
+That means that machines can be, for example, activated or deactivated.
+Interactions with machines, or their end state, can also be included in evaluating the mission.
+Machine cells can be both walkable and non-walkable.
+They can also share a state, so two machines can work with one logical property.
+
+While machines are stationary cell-locked entities, tools that the game mission should also introduce are to be carried with the character.
+Tools can also introduce commands, conditions, and directions.
+But the use of these commands should have limited use, so they can be used only if the character carries the tool at the moment.  
+Therefore, tools can be picked and placed on walkable cells or inside a machine that might destroy the item.
+
+Tools and machines can introduce an almost unlimited number of features.
+Players could, for example, use teleport, walk to different lengths of steps, open a door, deactivate a trap, and much more.
+Tools or machines can also add negative perks.
+
+Later updates of the game mission can also introduce the feature of combining tools.
+For example, players will be forced first to collect two diamonds that can be combined into a diamond key that can open doors.
+
+\subsubsection{Practice Missions}
+
+There could also be another type of mission, practice.
+This mission would check that players understand storytelling and learning missions.
+Practice missions can contain a simple quiz with multiple simple yes-no or ABC quiz-like questions.
+
+With these concepts, game missions could set up prerequisites, so players do not run game missions before understanding the story and learning materials.
+Another option could be that by completing these quizzes, players receive additional points.
+
+\subsubsection{Social Features}
+
+In the prototype, players cannot interact with other players.
+Social features could include a support forum, chats, global statistics, public profiles, etc.
+
+Support forum would introduce players with the option to ask other players to help them with an understanding of Karel's story, learning concepts, or with their algorithms.
+On the forum, players would be displayed with their username and a count of crowns, representing their gained points from stories and their completed stories.
+Players could upvote questions and answers so people can see the most relevant answers first.
+
+Global statistics and public profiles could be beneficial in terms of gamification.
+These features would enable social challenges with friends.
+Challenges are one of the features article~\cite{nand_2019_engaging} promoted as enhancing players' learning.
+It also makes the game more engaging.
+
+Public profiles also make it possible to friend other players.
+Then players can even compete with their friends.
+
+\subsubsection{Creator Screen}
+
+The prototype's scope is only to implement screens that players can use.
+The creator screen could provide essential tools for content creators to create and manage game content.
+
+Using the stories tool, creators can create and edit stories.
+When creating, they have to choose a name, a description, an URL, and an order number, in which this story will be sorted in lists.
+When editing, creators can edit a name, a description, or an order.
+Regular creators cannot change the URL to ensure players can access played stories by the URL they already used.
+
+Using the missions tool, creators can create all types of missions.
+Like the stories tool, they can create a mission with a name, an URL, and a description.
+Creators can also edit a name and a description.
+Regular creators cannot change the URL.
+Then, the creator chooses what type the mission should be.
+Creators can add a list of texts in a Markdown format for learning and storytelling missions.
+For practice missions, they have to add a list of questions where each question contains a question text, a list of answers, and a correct solution.  
+
+Game missions are unique because they require multiple dynamic setups.
+Creators are presented with a commands list view, where they insert all default commands they want for the mission.
+Then, they are presented with a grid view, where they can select a cell type and point and click on a grid cell to change the cell type.
+Some cells can contain additional data like walkable cells can have some marks.
+For those data, a unique JSON-generated view is generated.
+The exact process is repeated for the result grid view.
+Creators can use the button to clone the initial grid view so they can use the structures they created.
+To choose the character's initial and result position, they also select, point, and click on a cell -- which must be a valid walkable cell.
+If we consider that the game before this feature also introduced the machines and tools update, tools and machines can be selected and placed in a cell.
+If tools or machines use some logic, proper input or output fields are displayed, and the creator works with the ids of tools or machines.
+
+\subsubsection{Managers Screen}
+
+The game contains multiple screens with texts that managers should easily update.
+Those screens are the main screen and subscreens of the About Us screen, i.e., approach, contact, guidelines, help, info, press, privacy, and terms screens.
+For these screens, managers can update their content.
+Most can be done by editing their text content using the Markdown format.
+With this format of texts, managers can use advanced formatting needed for the content to use headings, links, bold and italic styles, etc.
+Optionally, screens can also contain multiple texts or even lists of texts.
+Nonetheless, texts are always in the Markdown format.
+
+\subsubsection{Teacher Screen}
+
+A teacher screen or possibly a classroom screen should allow teachers to monitor students' progress and see their results.
+They could also set up assignments and visibility of results and scoring in the class.
+
+The main feature of the screen is a list of students.
+Teachers can see a name, points gained this week, total points, and students' state of the current assignment.
+They can also order the list by each column to better analyze students in need of help or students that exceed expectations.
+
+Teachers can also display an archive of past assignments.
+For these assignments, they can display a list of results.
+Results display a name, total assignment score, if the assignment is completed, etc.
+These data can also be generated so teachers can print them or use them in sheets or other applications.
+
+From a student's point of view, the student can see their classrooms.
+Inside the classroom view, they can compare themselves with other students' results if the visibility of the classroom or assignment allows that.
+And the main thing students see is a current assignment and a history of assignments for which they see either only their results or results of other students as well, based on the visibility settings.
+
+Students and teachers can also use the classroom chat.
+The teacher can send a global message to everyone and have a direct message with each student.
+Teachers can also pin messages to the noticeboard that can be used as a place with recommended notes for students.
+
+\subsubsection{Parent Screen}
+
+Parents can register children under their profile to monitor them and set up some assignments.
+They can see the results in the stories of all of their children, and they can also see scores received this the current week.
+
+From the children's point of view, they cannot see their parent's data.
+They can only see what account is set up as their parent.
+
+\subsubsection{Random Challenge}
+
+As another gamification feature, the game also contains a daily challenge that should improve players' motivation and challenge them more. 
+As a reward for completing these challenges, players can gain additional points from it and compete with their friends in daily statistics.
+
+These challenges are generated randomly.
+This feature should introduce an algorithm that can generate exciting grids with possible-to-complete tasks.
+That means Karel should be able to get from the initial position to the result position.
+If some marks should be placed, there should be an empty place for them, and players should be able to move to the cell.
+Similarly, if some marks should be grabbed, players should be able to move the character to that cell, and the cell should have the marks needed.
+
+Considering that machines and tools are presented,
+the algorithm should be able to make valid requirements for using them.
+If the algorithm uses a locked door, it has to place the key somewhere or make it so the player can retrieve it.
+
+The algorithm should also generate a reasonable description from provided criteria.
+It should determine a logical order of instructions, and if some requirements are relative to each another, they should be placed next to each other.
+
+The algorithm should also be able to compute the optimal size and speed attributes and increase them by some amount to make the mission reasonably challenging but not too easy or too hard.
+That also applies to the mission itself.
+The algorithm should have ways to recognize too easy tasks like moving characters by one cell.
+Therefore a minimal grid size of 42 cells is required because too small grids also support the creation of uncomplicated tasks.
+In summary, the algorithm should be able to generate such a task so most of the players can complete the mission, but not every player can satisfy its size and speed requirements.

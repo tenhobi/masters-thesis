@@ -1,0 +1,491 @@
+{
+  "entities": [
+    {
+      "name": "Game_mission",
+      "parent": null,
+      "attr": [
+        {
+          "name": "commands_initial",
+          "primary": false,
+          "unique": false,
+          "nullable": false
+        },
+        {
+          "name": "board_initial",
+          "primary": false,
+          "unique": false,
+          "nullable": false
+        },
+        {
+          "name": "board_result",
+          "primary": false,
+          "unique": false,
+          "nullable": false
+        },
+        {
+          "name": "speed_limit",
+          "primary": false,
+          "unique": false,
+          "nullable": false
+        },
+        {
+          "name": "size_limit",
+          "primary": false,
+          "unique": false,
+          "nullable": false
+        },
+        {
+          "name": "robot_initial",
+          "primary": false,
+          "unique": false,
+          "nullable": false
+        },
+        {
+          "name": "robot_result",
+          "primary": false,
+          "unique": false,
+          "nullable": false
+        },
+        {
+          "name": "task_description",
+          "primary": false,
+          "unique": false,
+          "nullable": false
+        }
+      ],
+      "transform": {
+        "x": 651,
+        "y": 302.609375,
+        "width": 199.36181640625,
+        "height": 140
+      }
+    },
+    {
+      "name": "Game_progress",
+      "parent": null,
+      "attr": [
+        {
+          "name": "id",
+          "primary": true,
+          "unique": false,
+          "nullable": false
+        },
+        {
+          "name": "commands",
+          "primary": false,
+          "unique": false,
+          "nullable": false
+        },
+        {
+          "name": "speed",
+          "primary": false,
+          "unique": false,
+          "nullable": false
+        },
+        {
+          "name": "size",
+          "primary": false,
+          "unique": false,
+          "nullable": false
+        },
+        {
+          "name": "completed",
+          "primary": false,
+          "unique": false,
+          "nullable": false
+        }
+      ],
+      "transform": {
+        "x": 463,
+        "y": 468.609375,
+        "width": 173.414306640625,
+        "height": 98
+      }
+    },
+    {
+      "name": "Learning_mission",
+      "parent": null,
+      "attr": [
+        {
+          "name": "data",
+          "primary": false,
+          "unique": false,
+          "nullable": false
+        },
+        {
+          "name": "is_story",
+          "primary": false,
+          "unique": false,
+          "nullable": false
+        }
+      ],
+      "transform": {
+        "x": 863,
+        "y": 301.609375,
+        "width": 167.813232421875,
+        "height": 56
+      }
+    },
+    {
+      "name": "Mission",
+      "parent": null,
+      "attr": [
+        {
+          "name": "id",
+          "primary": true,
+          "unique": false,
+          "nullable": false
+        },
+        {
+          "name": "url",
+          "primary": false,
+          "unique": true,
+          "nullable": false
+        },
+        {
+          "name": "name",
+          "primary": false,
+          "unique": false,
+          "nullable": false
+        },
+        {
+          "name": "description",
+          "primary": false,
+          "unique": false,
+          "nullable": false
+        },
+        {
+          "name": "order",
+          "primary": false,
+          "unique": false,
+          "nullable": false
+        }
+      ],
+      "transform": {
+        "x": 785,
+        "y": 123.609375,
+        "width": 124.953125,
+        "height": 98
+      }
+    },
+    {
+      "name": "Story",
+      "parent": null,
+      "attr": [
+        {
+          "name": "id",
+          "primary": true,
+          "unique": false,
+          "nullable": false
+        },
+        {
+          "name": "url",
+          "primary": false,
+          "unique": true,
+          "nullable": false
+        },
+        {
+          "name": "name",
+          "primary": false,
+          "unique": false,
+          "nullable": false
+        },
+        {
+          "name": "description",
+          "primary": false,
+          "unique": false,
+          "nullable": false
+        }
+      ],
+      "transform": {
+        "x": 516,
+        "y": 131.609375,
+        "width": 114.37744140625,
+        "height": 84
+      }
+    },
+    {
+      "name": "User",
+      "parent": null,
+      "attr": [
+        {
+          "name": "id",
+          "primary": true,
+          "unique": false,
+          "nullable": false
+        },
+        {
+          "name": "name",
+          "primary": false,
+          "unique": false,
+          "nullable": false
+        },
+        {
+          "name": "password",
+          "primary": false,
+          "unique": false,
+          "nullable": false
+        },
+        {
+          "name": "username",
+          "primary": false,
+          "unique": true,
+          "nullable": false
+        },
+        {
+          "name": "description",
+          "primary": false,
+          "unique": false,
+          "nullable": false
+        }
+      ],
+      "transform": {
+        "x": 493,
+        "y": 300.609375,
+        "width": 110.422119140625,
+        "height": 98
+      }
+    }
+  ],
+  "relations": [
+    [
+      {
+        "entity": "Game_progress",
+        "identifying": false,
+        "optional": false,
+        "cardinality": 0,
+        "xor": null,
+        "name": null,
+        "transform": {
+          "anchor": {
+            "x": 636.414306640625,
+            "y": 528.609375,
+            "edge": 1
+          },
+          "points": [
+            {
+              "x": 758,
+              "y": 528.609375
+            }
+          ],
+          "manual": false
+        }
+      },
+      {
+        "entity": "Game_mission",
+        "identifying": false,
+        "optional": true,
+        "cardinality": 1,
+        "xor": null,
+        "name": null,
+        "transform": {
+          "anchor": {
+            "x": 758,
+            "y": 442.609375,
+            "edge": 2
+          },
+          "points": [
+            {
+              "x": 758,
+              "y": 528.609375
+            }
+          ],
+          "manual": false
+        }
+      }
+    ],
+    [
+      {
+        "entity": "Mission",
+        "identifying": false,
+        "optional": true,
+        "cardinality": 1,
+        "xor": "436ab20363efe89263efe892e4764d7",
+        "name": null,
+        "transform": {
+          "anchor": {
+            "x": 816,
+            "y": 221.609375,
+            "edge": 2
+          },
+          "points": [
+            {
+              "x": 816,
+              "y": 273.609375
+            }
+          ],
+          "manual": false
+        }
+      },
+      {
+        "entity": "Game_mission",
+        "identifying": true,
+        "optional": false,
+        "cardinality": 1,
+        "xor": null,
+        "name": null,
+        "transform": {
+          "anchor": {
+            "x": 747,
+            "y": 302.609375,
+            "edge": 0
+          },
+          "points": [
+            {
+              "x": 747,
+              "y": 273.609375
+            },
+            {
+              "x": 816,
+              "y": 273.609375
+            }
+          ],
+          "manual": true
+        }
+      }
+    ],
+    [
+      {
+        "entity": "Mission",
+        "identifying": false,
+        "optional": true,
+        "cardinality": 1,
+        "xor": "436ab20363efe89263efe892e4764d7",
+        "name": null,
+        "transform": {
+          "anchor": {
+            "x": 878,
+            "y": 221.609375,
+            "edge": 2
+          },
+          "points": [
+            {
+              "x": 878,
+              "y": 274.609375
+            }
+          ],
+          "manual": false
+        }
+      },
+      {
+        "entity": "Learning_mission",
+        "identifying": true,
+        "optional": false,
+        "cardinality": 1,
+        "xor": null,
+        "name": null,
+        "transform": {
+          "anchor": {
+            "x": 946.9066162109375,
+            "y": 301.609375,
+            "edge": 0
+          },
+          "points": [
+            {
+              "x": 946.9066162109375,
+              "y": 274.609375
+            },
+            {
+              "x": 878,
+              "y": 274.609375
+            }
+          ],
+          "manual": true
+        }
+      }
+    ],
+    [
+      {
+        "entity": "Story",
+        "identifying": false,
+        "optional": true,
+        "cardinality": 1,
+        "xor": null,
+        "name": null,
+        "transform": {
+          "anchor": {
+            "x": 630.37744140625,
+            "y": 173.109375,
+            "edge": 1
+          },
+          "points": [
+            {
+              "x": 707.688720703125,
+              "y": 172.859375
+            }
+          ],
+          "manual": false
+        }
+      },
+      {
+        "entity": "Mission",
+        "identifying": false,
+        "optional": false,
+        "cardinality": 0,
+        "xor": null,
+        "name": null,
+        "transform": {
+          "anchor": {
+            "x": 785,
+            "y": 172.609375,
+            "edge": 3
+          },
+          "points": [
+            {
+              "x": 707.688720703125,
+              "y": 172.859375
+            }
+          ],
+          "manual": false
+        }
+      }
+    ],
+    [
+      {
+        "entity": "User",
+        "identifying": false,
+        "optional": true,
+        "cardinality": 1,
+        "xor": null,
+        "name": null,
+        "transform": {
+          "anchor": {
+            "x": 548.2110595703125,
+            "y": 398.609375,
+            "edge": 2
+          },
+          "points": [
+            {
+              "x": 548.1469106674194,
+              "y": 433.609375
+            }
+          ],
+          "manual": false
+        }
+      },
+      {
+        "entity": "Game_progress",
+        "identifying": false,
+        "optional": false,
+        "cardinality": 0,
+        "xor": null,
+        "name": null,
+        "transform": {
+          "anchor": {
+            "x": 548.0827617645264,
+            "y": 468.609375,
+            "edge": 0
+          },
+          "points": [
+            {
+              "x": 548.1469106674194,
+              "y": 433.609375
+            }
+          ],
+          "manual": false
+        }
+      }
+    ]
+  ],
+  "notes": []
+}

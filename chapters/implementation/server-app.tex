@@ -1,0 +1,122 @@
+\section{Server Application}
+
+The design chapter \ref{chapter:design} selected the ASP.NET Web API in version 6.0.102 with C\# and the Entity Framework in version 6.0.3 tool.
+
+All services and repositories interfaces implementations are registered in the dependency injection tool provided by the ASP.NET.
+The dependency injection tool allows automatic injection into constructors, thus abstracting the process of creating most objects.
+This is a kind of magic compared to other languages and technologies, but it works well.
+Registration is done in the \mintinline{text}|Startup| class that in the \mintinline{text}|ConfigureServices| method uses \mintinline{text}|IServiceCollection| to register.
+Controllers are also registered in a similar way using the \mintinline{csharp}|services.AddControllers()| method that an automatic registration of all controllers.
+Services and repositories are registered using \mintinline{csharp}|services.AddScopped<InterfaceType, ImplementationType>()|.
+
+Setting up configurations for the game is also made in the \mintinline{text}|ConfigureServices|.
+For configuration a combination of standard public file \mintinline{text}|appsettings.json| and a secret file \mintinline{text}|secrets.json| can be used.
+The structure of the game's configuration can be seen in the code \ref{listing:serverconfig}.
+The \mintinline{text}|DatabaseUrl| and \mintinline{text}|JwtSecret| should be stored in a secured file.
+
+\begin{listing}
+    \caption{Server Configuration}
+    \label{listing:serverconfig}
+    \begin{minted}{json}
+{
+    "AppSettings": {
+        "DatabaseUrl": "<db url>",
+        "JwtSecret": "<token>",
+        "CorsOrigins": [
+            "http://localhost:8080"
+        ]
+    }
+}
+    \end{minted}
+\end{listing}
+
+The primary purpose of the server application is to provide a Web API that handles storing and fetching the game's data.
+It uses controllers to handle incoming HTTP requests.
+Controllers use injected services that handle all logic.
+Services usually use injected repositories that communicate with the database using the Language-Integrated Query (LINQ) to Entities.
+LINQ to Entities can be used on the \mintinline{text}|DbSet| properties of the \mintinline{text}|DbContext| object.
+An example of such usage in LINQ method syntax can be seen in the code \ref{listing:linq} that shows a fetch of missions for a specific story.
+
+\begin{listing}
+    \caption{LINQ to Entities}
+    \label{listing:linq}
+    \begin{minted}{csharp}
+var missions = _dbContext.Stories
+    .Include(s => s.Missions)
+    .FirstOrDefault(s => s.Url == storyUrl)
+    ?.Missions;
+    \end{minted}
+\end{listing}
+
+\subsection{Saving the Game Progress}
+
+To save the game progress the HTTP PUT method on \linebreak\mintinline{text}|{storyUrl}/{missionUrl}| resource must be called.
+It should contain \linebreak\mintinline{text}|GameProgressDto| data, which includes commands as an encoded JSON in a string, speed and size attributes as an int, and the completed attribute as a bool.
+
+Inside of the controller, the \mintinline{text}|StoryService| is called with the \linebreak\mintinline{text}|SaveGameProgress| method.
+Inside the service, an eponymous method is called on the \mintinline{text}|StoryRepository|.
+Inside the repository, if game progress existed before, it is fetched.
+If there is already an existing record, its data get updated.
+Otherwise, a new \mintinline{text}|GameProgress| object must be created.
+An important note is that the created object must contain a reference to the user and game entities.
+Therefore they must be fetched and used.
+
+\subsection{Fetching Story's Missions}
+
+The \mintinline{text}|StoryRepository| repository also contains the \mintinline{text}|GetMissions| method.
+That is used to fetch missions of all types.
+Because the game mission can have an associated \mintinline{text}|GameProgress| record for the specified user, a join has to be made.
+LINQ contains two joins.
+The \mintinline{text}|Join()| method corresponds to the SQL's inner join.
+And the \mintinline{text}|GroupJoin()| method that corresponds to the SQL's left outer join.
+For this purpose, the \mintinline{text}|GroupJoin()| method was used.
+The code of the left outer join can be seen in the code \ref{listing:groupjoin}.
+Note that \mintinline{text}|missions| contains all missions of the selected story.
+It also uses the \mintinline{text}|resultSelector| that merges the joined data and converts the entity from the entity to do a more suitable DTO.
+
+\begin{listing}
+    \caption{GroupJoin to Fetch Story's Missions}
+    \label{listing:groupjoin}
+    \begin{minted}{csharp}
+var queryData = missions.OrderBy(m => m.Order)
+    .GroupJoin(
+        _dbContext.GameProgresses.Where(
+            progress => progress.User.Id == userId
+        ),
+        m => m.Id,
+        gp => gp.Game.Id,
+        (mission, progresses) => GetMissionDtoFromGroupJoin(
+            mission, progresses.SingleOrDefault()
+        )
+    ).ToList();
+    \end{minted}
+\end{listing}
+
+DTOs cannot return different data based on inheritance.
+For this purpose, the \mintinline{text}|GetMissionDtoFromGroupJoin()| method returns the \mintinline{text}|MissionsListDto|, which has two subtrees: either inside a game property or a learning property; the other is null.
+This way, inherited data can be returned in response to the client from the controller.
+A better solution was not found.
+
+\subsection{Tokens}
+
+The tokens were discussed in the \ref{design:server:tokens} chapter.
+\mintinline{text}|JwtService| service uses the \mintinline{text}|Microsoft.AspNetCore.Authentication.JwtBearer| library in version 6.0.3 for token generation and validation.
+
+For the generation, it uses the user's id as an id claim, expiration is set to seven days, and it is signed using the \mintinline{text}|HmacSha256Signature| algorithm.
+Mentioned and other data create the \mintinline{text}|SecurityTokenDescriptor| and the \mintinline{text}|JwtSecurityTokenHandler| then creates the token from it.
+
+Validation of the token uses \mintinline{text}|ValidateToken()| from the \linebreak\mintinline{text}|JwtSecurityTokenHandler| object.
+
+Clients must add JWT to the authorization header like \linebreak\mintinline{text}|Authorization: Bearer <jwt-token>|.
+A custom authentication scheme \linebreak\mintinline{text}|KingKarelAuthHandler| is used to validate the token.
+The handler checks the presence of the authorization header and whether it starts with the \textquote*{Bearer} string.
+The handler then uses the \mintinline{text}|JwtService| that tries to validate the token.
+If the token is valid, the id claim is fetched from the token and added as the identity claim to the \mintinline{text}|AuthenticationTicket|.
+Controllers then can use these claims by accessing \mintinline{text}|User.Claims|.
+
+\subsection{Passwords}
+
+Passwords are hashed using the \mintinline{text}|BCrypt.Net-Next| library in version 4.0.3.
+The library provides the \mintinline{text}|BCrypt| object that has a method \mintinline{text}|HashPassword()| that hashes a password with a generated salt.
+It also provides the \mintinline{text}|Verify()| method that requires a password and a hashed password arguments. 
+Only hashed passwords are stored in the database.

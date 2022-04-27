@@ -1,0 +1,78 @@
+{
+    "yaml.schemas": {
+        "https://json.schemastore.org/github-workflow.json": "file:///home/tenhobi/dev/dp/masters-thesis/.github/workflows/build.yaml"
+    },
+    "grammarly.overrides": [
+        {
+            "files": [
+                "**/thesis.tex"
+            ],
+            "config": {
+                "audience": "knowledgeable",
+                "dialect": "american",
+                "domain": "academic",
+                "emotions": [
+                    "neutral",
+                    "confident",
+                    "joyful",
+                    "optimistic",
+                    "respectful",
+                    "friendly",
+                    "analytical"
+                ],
+                "goals": [
+                    "describe",
+                    "convince"
+                ]
+            }
+        },
+        {
+            "files": [
+                "**/chapters/introduction/goals.tex"
+            ],
+            "config": {
+                "audience": "knowledgeable",
+                "dialect": "american",
+                "domain": "academic",
+                "emotions": [
+                    "neutral",
+                    "confident",
+                    "joyful",
+                    "optimistic",
+                    "respectful",
+                    "friendly",
+                    "analytical"
+                ],
+                "goals": [
+                    "inform",
+                    "describe",
+                    "convince"
+                ]
+            }
+        },
+        {
+            "files": [
+                "**/chapters/introduction/intro.tex"
+            ],
+            "config": {
+                "audience": "knowledgeable",
+                "dialect": "american",
+                "domain": "academic",
+                "emotions": [
+                    "neutral",
+                    "confident",
+                    "joyful",
+                    "optimistic",
+                    "respectful",
+                    "friendly",
+                    "analytical"
+                ],
+                "goals": [
+                    "inform",
+                    "describe",
+                    "convince"
+                ]
+            }
+        }
+    ]
+}

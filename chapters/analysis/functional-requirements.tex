@@ -1,0 +1,37 @@
+\section{Functional Requirements}
+
+For the context of this section, a not-signed user is called \textquote{a user}, and a signed user is called \textquote{a player}.
+Moreover, a player can use all features a user can. 
+
+Functional requirements describe individual requirements for the functionality of the game.
+They describe actions or features users or players can use.
+These requirements can be looked at as individual units, and they can form separate game modules.
+
+Analysis of the game that is the base for requirements is described in more detail in section~\ref{analysis:game}.
+Signing up, in, and out~-- as described in section~\ref{analysis:game:sign-up-in-out}~-- are crucial requirements that allow users to use the locked-in features of the game.
+Looking up game information~-- as described in section~\ref{analysis:game:game-information}~-- is an essential feature that allows all types of users, users, and players, to get the available information like contacts, press data, and guidelines, terms of use, etc.
+Players also might need to take a look at their profile of statistics~-- as described in sections~\ref{analysis:game:statistics} and~\ref{analysis:game:profile}.
+The game provides several courses called stories and their missions.
+Missions can be of different types: storytelling, learning, or game missions.
+Courses and missions are widely described in section~\ref{analysis:game:stories-and-missions}, and game mission and all its features, in particular, are described in section~\ref{analysis:game:game-missions}.
+Some additional features are also described as future development ideas in section~\ref{analysis:game:future-features}.
+However, these features are not included in the list of functional requirements, as this list only contains features for the prototype that will be designed and implemented in the game.
+
+\begin{enumerate}[label=\textbf{F\arabic*}, ref=F\arabic*]
+    \myItem{Sign Up, In and Out} A player can sign up and sign in to the game.
+    \myItem{Game Information} A user can display game information, including contact, guidelines, terms, press, and approach.
+    \myItem{Statistics} A player can display their statistics.
+    \myItem{Profile} A player can display their profile.
+    \myItem{Courses} A player can display courses and their missions.
+    \myItem{Storytelling Missions} A player can display and read storytelling missions.
+    \myItem{Learning Missions} A player can display, click through and learn from learning missions.
+    \myItem{Game Missions} A player can display, run the game and use all the game missions features. 
+    \begin{enumerate}
+        \item Display a command list and add or move commands in it.
+        \item Display a game grid.
+        \item Run and stop a game.
+        \item Display success or failure dialog.
+    \end{enumerate}
+\end{enumerate}
+
+\blind[8] 

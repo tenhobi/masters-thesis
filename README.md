@@ -28,7 +28,7 @@ Within the diploma thesis:
 texlive
 texlive-xetex
 texlive-extra-utils
-% texlive-lang-czechslovak
+texlive-lang-czechslovak
 texlive-bibtex-extra
 biber
 python-pygments

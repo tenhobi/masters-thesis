@@ -1,6 +1,6 @@
 # King Karel — An Educational Programming Puzzle Game
 
-[![Actions status](https://github.com/tenhobi/masters-thesis/workflows/build/badge.svg)](https://github.com/tenhobi/masters-thesis/actions)
+[![Actions status](https://github.com/tenhobi/masters-thesis/workflows/Build/badge.svg)](https://github.com/tenhobi/masters-thesis/actions)
 [![License: MIT](https://img.shields.io/badge/license-CC%20BY--SA%204.0-blue.svg)](https://creativecommons.org/licenses/by-sa/4.0)
 
 ## Master's Thesis

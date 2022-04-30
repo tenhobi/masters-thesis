@@ -1,37 +1,63 @@
 \section{Functional Requirements}
 
-For the context of this section, a not-signed user is called \textquote{a user}, and a signed user is called \textquote{a player}.
-Moreover, a player can use all features a user can. 
+For the~context of this section, a~not-signed user is called \textquote*{a~user}, and a~signed user is called \textquote*{a~player}.
+Moreover, a~player can use all features a~user can. 
 
-Functional requirements describe individual requirements for the functionality of the game.
+Functional requirements describe individual requirements for the~functionality of the~game.
 They describe actions or features users or players can use.
 These requirements can be looked at as individual units, and they can form separate game modules.
 
-Analysis of the game that is the base for requirements is described in more detail in section~\ref{analysis:game}.
-Signing up, in, and out~-- as described in section~\ref{analysis:game:sign-up-in-out}~-- are crucial requirements that allow users to use the locked-in features of the game.
-Looking up game information~-- as described in section~\ref{analysis:game:game-information}~-- is an essential feature that allows all types of users, users, and players, to get the available information like contacts, press data, and guidelines, terms of use, etc.
-Players also might need to take a look at their profile of statistics~-- as described in sections~\ref{analysis:game:statistics} and~\ref{analysis:game:profile}.
-The game provides several courses called stories and their missions.
+Analysis of the~game that is the~base for requirements is described in more detail in section~\ref{analysis:game}.
+Signing up, in, and out~-- as described in section~\ref{analysis:game:sign-up-in-out}~-- are crucial requirements that allow users to use the~locked-in features of the~game.
+Looking up game information~-- as described in section~\ref{analysis:game:game-information}~-- is an~essential feature that allows all types of users and players to get the~available information like contacts, press data, guidelines, terms of use, etc.
+Players also might need to take a~look at their profile or statistics~-- as described in sections~\ref{analysis:game:statistics} and~\ref{analysis:game:profile}.
+The~game provides several courses called stories and their missions.
 Missions can be of different types: storytelling, learning, or game missions.
 Courses and missions are widely described in section~\ref{analysis:game:stories-and-missions}, and game mission and all its features, in particular, are described in section~\ref{analysis:game:game-missions}.
 Some additional features are also described as future development ideas in section~\ref{analysis:game:future-features}.
-However, these features are not included in the list of functional requirements, as this list only contains features for the prototype that will be designed and implemented in the game.
+However, these features are not included in the~list of functional requirements, as this list only contains elements for the~prototype that will be designed and implemented in the~game.
 
+\pagebreak
 \begin{enumerate}[label=\textbf{F\arabic*}, ref=F\arabic*]
-    \myItem{Sign Up, In and Out} A player can sign up and sign in to the game.
-    \myItem{Game Information} A user can display game information, including contact, guidelines, terms, press, and approach.
-    \myItem{Statistics} A player can display their statistics.
-    \myItem{Profile} A player can display their profile.
-    \myItem{Courses} A player can display courses and their missions.
-    \myItem{Storytelling Missions} A player can display and read storytelling missions.
-    \myItem{Learning Missions} A player can display, click through and learn from learning missions.
-    \myItem{Game Missions} A player can display, run the game and use all the game missions features. 
+    \myItem{Sign Up, In and Out} An~anonymous user must sign in to unlock courses and other in-game screens.
+    If they do not have an~account, they can create one on the~sign-up screen.
+    If they already have an~account, they can sign in to the~game on the~sign-in screen.
+    If the~user is signed in, they can sign out of the~game, thus losing the~right to view the~in-game screens.
+    \myItem{Game Information} An~anonymous user can display game information on the~about us screen, including approach, apps, contact, guidelines, help, info, press, privacy, and terms subscreens.
+    \myItem{Statistics} A~player is shown the~result of the~game mission after its completion.
+    They see whether they succeeded in the~mission and the~optional attributes \mintinline{text}|size| and \mintinline{text}|speed|.
+    The~player can also view their summary statistics from all missions on the~statistics screen.
+    On this screen, they can see the~name of the~mission, the~affiliation to the~story, whether it was successful, and the~optional attributes \mintinline{text}|size| and \mintinline{text}|speed|.
+    \myItem{Profile} A~player can view their profile on the~profile screen.
+    There they can see their nickname, name, email, and description.
+    \myItem{Courses} A~player can view a~list of courses.
+    This overview displays the~courses' names, descriptions, and how many missions they contain.
+    On the~screen of individual courses, the~player then sees the~name of the~course and individual missions.
+    The~player sees their name and description for each mission and can run them.
+    In addition, they see a~state of the~game mission.
+    The~state indicates whether the~game mission has been completed and, if so, whether the~optional size and speed attributes have been met.
+    \myItem{Storytelling Missions} A~player can view the~storytelling mission.
+    They can gradually click through the~story, introducing them to it.
+    The~storytelling parts contain formatted text and pictures.
+    \myItem{Learning Missions} A~player can view the~learning mission.
+    They can read the~learning sections to learn the~concepts of the~game.
+    The~learning sections contain formatted text and pictures. 
+    
+    \pagebreak
+    \myItem{Game Missions} A~player can view and play the~game mission.
+    It has several game mission features that will help players understand the~mission objectives and fulfill them.
+    The~player can:
     \begin{enumerate}
-        \item Display a command list and add or move commands in it.
-        \item Display a game grid.
-        \item Run and stop a game.
-        \item Display success or failure dialog.
+        \item Display visual commands added to the~command list and can be moved in it using drag-and-drop.
+        The~player can move new commands from the~palette.
+        \item Display the~game grid, in which the~individual cells of the~game mission are displayed.
+        There are cells for walkable cells and non-walkable cells.
+        The~robot cannot walk outside the~marked grid.
+        Walkable cells can display marks.
+        \item Start a~game that processes visual commands and starts an~interactive robot walk through the~grid.
+        The~player sees the~currently executed command and the~robot's current position in the~grid.
+        \item At the~end of the~game, a~success or failure dialog will appear.
+        Additionally, a~specific error message may be displayed if it fails.
+        Optional \mintinline{text}|size| and \mintinline{text}|speed| attributes are displayed on success.
     \end{enumerate}
 \end{enumerate}
-
-\blind[8] 

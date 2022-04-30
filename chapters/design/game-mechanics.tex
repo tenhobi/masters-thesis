@@ -1,60 +1,60 @@
 \section{Game Mechanics}
 
-The game's principle is to fulfill the individual game missions with the training courses gradually.
-Because the game is designed as an educational game, users must first register.
+The~game's principle is to fulfill the~individual game missions with the~training courses gradually.
+Because the~game is designed as an~educational game, users must first register.
 
-The game contains separate courses called stories.
-The story contains several missions.
+The~game contains separate courses called stories.
+The~story contains several missions.
 These can be of different types: storytelling, learning, and game.
-The goal is to gradually go through the missions, read the story in the storytelling missions, and get used to it.
-Storytelling missions have step-by-step messages to structure the story.
-In learning missions, the goal is to learn information and new concepts and terms or improve on them.
-The information in these missions should be more comprehensive and may overlap.
-Game missions are used to test the acquired knowledge, understand the task, come up with solutions, and overcome the challenge.
+The~goal is to gradually go through the~missions, read the~story in the~storytelling missions, and get used to it.
+Storytelling missions have step-by-step messages to structure the~story.
+In learning missions, the~goal is to learn information and new concepts and terms or improve on them.
+The~information in these missions should be more comprehensive and may overlap.
+Game missions are used to test the~acquired knowledge, understand the~task, come up with solutions, and overcome the~challenge.
 
-The very concept of the game is based on the fact that the player uses command blocks to move the playable character of the robot Karel, the king of the game's story.
-The player tries to perform various tasks with him.
-Command blocks are a visual programming interface that needs to be inserted into the command list in the correct order and, if necessary, nested correctly.
+The~very concept of the~game is based on the~fact that the~player uses command blocks to move the~playable character of the~robot Karel, the~king of the~game's story.
+The~player tries to perform various tasks with him.
+Command blocks are a~visual programming interface that needs to be inserted into the~command list in the~correct order and, if necessary, nested correctly.
 However, there is no single correct solution.
-In addition, the command blocks must be valid, i.e., all their mandatory attributes must be set.
+In addition, the~command blocks must be valid, i.e., all their mandatory attributes must be set.
 There are several types of command blocks.
 
-Command \mintinline{text}|move <direction>| moves Karel one square in the chosen direction.
-However, Karel can only move through the boxes designated for this purpose.
-For example, it must not hit a wall, outside the grid, water, etc.
-If Karel manages to hit such a square, the game ends with an error.
+Command \mintinline{text}|move <direction>| moves Karel one square in the~chosen direction.
+However, Karel can only move through the~boxes designated for this purpose.
+For example, it must not hit a~wall, outside the~grid, water, etc.
+If Karel manages to hit such a~square, the~game ends with an~error.
 
-With the \mintinline{text}|put mark| command Karel places one mark on the square he is standing on.
-However, there cannot be unlimited tags in a square.
-If Karel tries to put a mark on a square where there is no more space, the game ends with an error.
+With the~\mintinline{text}|put mark| command Karel places one mark on the~square he is standing on.
+However, there cannot be unlimited tags in a~square.
+If Karel tries to put a~mark on a~square where there is no more space, the~game ends with an~error.
 
-With the \mintinline{text}|grab mark| command Karel takes the mark from the square he is standing on.
-However, such a mark must be on the square.
-If Karel tries to take the mark from the square where the mark was not, the game ends with an error.
+With the~\mintinline{text}|grab mark| command Karel takes the~mark from the~square he is standing on.
+However, such a~mark must be on the~square.
+If Karel tries to take the~mark from the~square where the~mark was not, the~game ends with an~error.
 
-With the \mintinline{text}|if <condition>| command Karel asks a question.
-The question may be whether it can move in that direction one square.
-It may also be up to the marks whether Karel can remove a mark from the current square or place it on it.
+With the~\mintinline{text}|if <condition>| command Karel asks a~question.
+The~question may be whether it can move in that direction one square.
+It may also be up to the~marks whether Karel can remove a~mark from the~current square or place it on it.
 Additional commands are nested in this command.
-These will only be performed if the business is evaluated successfully.
-If the condition is not evaluated successfully, the command and the nested commands are skipped.
+These will only be performed if the~business is evaluated successfully.
+If the~condition is not evaluated successfully, the~command and the~nested commands are skipped.
 
-The \mintinline{text}|while <condition>| command works similarly to the \mintinline{text}|if <condition>| command.
-The difference is that Karel asks as long as the condition is met, and he repeats the process until the condition fails.
-If the condition fails the first time, the statement is not executed, and no nested statements are executed.
+The~\mintinline{text}|while <condition>| command works similarly to the~\mintinline{text}|if <condition>| command.
+The~difference is that Karel repeats the process as long as the~condition is met.
+If the~condition fails the~first time, the~statement is not executed, and no nested statements are executed.
 
-Using the appropriate commands correctly makes it possible to compose a tree structure of command blocks that solve the given game mission.
-After pressing the play button, the game evaluation starts.
-The evaluation is stepped through, and the player has the opportunity to see which current command is being executed.
-The player also has the opportunity to see where Karel is and which other squares are updated, i.e., where the number of marks has changed.
-The player can stop the game by pressing the stop button. 
+Using the~appropriate commands correctly makes it possible to compose a~tree structure of command blocks that solve the~given game mission.
+After pressing the~play button, the~game evaluation starts.
+The~evaluation is stepped through, and the~player has the~opportunity to see which current command is being executed.
+The~player also has the~opportunity to see where Karel is and which other squares are updated, i.e., where the~number of marks has changed.
+The~player can stop the~game by pressing the~stop button. 
 
-While passing through the game, Karel collects optional size and speed attributes.
-The size attribute indicates the number of blocks that were used.
-The speed attribute indicates how many times any block has been used.
+While passing through the~game, Karel collects optional size and speed attributes.
+The~size attribute indicates the~number of blocks that were used.
+The~speed attribute indicates how many times any block has been used.
 
-The final dialog will be displayed if an error is encountered during the evaluation or if the game is evaluated successfully.
+The~final dialog will be displayed if an~error is encountered during the~evaluation or if the~game is evaluated successfully.
 This dialog takes two forms, either successful or unsuccessful.
-The successful dialog displays a success message and the status of the optional size and speed attributes.
-These attributes have a specified limit.
-If a player scores better than these limits, they receive a bonus point for each attribute.
+The~successful dialog displays a~success message and the~status of the~optional size and speed attributes.
+These attributes have a~specified limit.
+If a~player scores better than these limits, they receive a~bonus point for each attribute.

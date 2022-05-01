@@ -39,6 +39,7 @@
 
 \LoadClass[a4paper,twoside]{memoir}[2016/05/16]
 
+\RequirePackage[table]{xcolor}
 
 \RequirePackage{babel}[2017/05/19]
 

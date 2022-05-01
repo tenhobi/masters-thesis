@@ -4,14 +4,16 @@
 % arara: xelatex: { synctex: 1, shell : yes }
 
 \documentclass[thesis=M,english]{template/FITthesis}[2019/12/23]
-
 \usepackage[utf8]{inputenc} % LaTeX source encoded as UTF-8
 \usepackage{dirtree}
 \usepackage{xevlna}
 \usepackage{hyperref}
 \usepackage{caption}
 \usepackage{enumitem}
-\usepackage{lua-visual-debug}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{blindtext}
 
 \makeatletter
 \newcommand\my@hyphen{-}
@@ -31,6 +33,7 @@
 \usepackage{lineno}
 \usepackage{csquotes}
 \usepackage{placeins}
+\usepackage{suffix}
 
 \input{macros/_all.tex}
 

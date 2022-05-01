@@ -17,28 +17,37 @@ Courses and missions are widely described in section~\ref{analysis:game:stories-
 Some additional features are also described as future development ideas in section~\ref{analysis:game:future-features}.
 However, these features are not included in the~list of functional requirements, as this list only contains elements for the~prototype that will be designed and implemented in the~game.
 
+The following list shows the~analyzed functional requirements.
+Requirements marked with \mintinline{text}{*} are beyond the scope of this thesis and will not be designed and implemented in more detail.
+
 \pagebreak
-\begin{enumerate}[label=\textbf{F\arabic*}, ref=F\arabic*]
+\begin{enumerate}[label=\textbf{F\arabic*}, ref=\labelenumi]
     \myItem{Sign Up, In and Out} An~anonymous user must sign in to unlock courses and other in-game screens.
     If they do not have an~account, they can create one on the~sign-up screen.
     If they already have an~account, they can sign in to the~game on the~sign-in screen.
     If the~user is signed in, they can sign out of the~game, thus losing the~right to view the~in-game screens.
+
     \myItem{Game Information} An~anonymous user can display game information on the~about us screen, including approach, apps, contact, guidelines, help, info, press, privacy, and terms subscreens.
+
     \myItem{Statistics} A~player is shown the~result of the~game mission after its completion.
     They see whether they succeeded in the~mission and the~optional attributes \mintinline{text}|size| and \mintinline{text}|speed|.
     The~player can also view their summary statistics from all missions on the~statistics screen.
     On this screen, they can see the~name of the~mission, the~affiliation to the~story, whether it was successful, and the~optional attributes \mintinline{text}|size| and \mintinline{text}|speed|.
+
     \myItem{Profile} A~player can view their profile on the~profile screen.
     There they can see their nickname, name, email, and description.
+
     \myItem{Courses} A~player can view a~list of courses.
     This overview displays the~courses' names, descriptions, and how many missions they contain.
     On the~screen of individual courses, the~player then sees the~name of the~course and individual missions.
     The~player sees their name and description for each mission and can run them.
     In addition, they see a~state of the~game mission.
     The~state indicates whether the~game mission has been completed and, if so, whether the~optional size and speed attributes have been met.
+
     \myItem{Storytelling Missions} A~player can view the~storytelling mission.
     They can gradually click through the~story, introducing them to it.
     The~storytelling parts contain formatted text and pictures.
+
     \myItem{Learning Missions} A~player can view the~learning mission.
     They can read the~learning sections to learn the~concepts of the~game.
     The~learning sections contain formatted text and pictures. 
@@ -60,4 +69,45 @@ However, these features are not included in the~list of functional requirements,
         Additionally, a~specific error message may be displayed if it fails.
         Optional \mintinline{text}|size| and \mintinline{text}|speed| attributes are displayed on success.
     \end{enumerate}
+
+    \renewcommand{\labelenumi}{\textbf{F\arabic{enumi}}*}
+
+    \myItem{Function Commands} A~player can use advanced commands such as functions.
+    Functions can use other functions, and functions can also use themselves.
+    The~player can create, edit and delete functions.
+
+    \myItem{Machines} The~game has special cells~-- machines~-- which a~player can interact with.
+    The robot can use commands and conditions which machines add to the~game.
+
+    \myItem{Tools} The game has tools.
+    These are entities that the~robot can pick up and use.
+    They add commands and conditions to the~game.
+    Tools can also be combined.
+
+    \myItem{Practice Mission} A~player can view and complete a~practice mission that includes quizzes with yes-no or ABC questions.
+    Questions must be answered correctly for the~player to continue.
+
+    \myItem{Social Features} Players can communicate with each other through forums and chats.
+    Players can view global statistics and public profiles.
+    A~player can add other players to their friend list.
+
+    \myItem{Creator Features} The~game has features for creating and managing missions and stories.
+    A~creator can create and edit stories.
+    They can also create and edit missions of all types.
+    Various missions have adequate tools for their creation.
+
+    \myItem{Manager Features} The game has features for editing texts on information screens.
+    A~manager can edit the main screen, about-us screen, and about-us subscreens.
+
+    \myItem{Teacher Features} The~game has an~additional type of user, a~teacher.
+    Teachers can create classrooms where classes can be created.
+    In a~given class, the~teacher can add and remove students for whom they can monitor performance and assign tasks.
+    Students can view assigned tasks on the~classroom screen and compare themselves with other classmates if the~settings allow it.
+
+    \myItem{Parent Features} The~game has an~additional type of user, a~parent.
+    A~parent can monitor their children and give them assignments.
+
+    \myItem{Random Challenge} The~game automatically creates a~random daily challenge.
+    Players receive points for completing challenges, and players can compare with other players in the~statistics.
+    The~game generates challenges automatically and correctly, including goals, grid, and description.
 \end{enumerate}

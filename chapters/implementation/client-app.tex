@@ -135,11 +135,11 @@ if (containerRender.size.contains(
 )) {
     // But it is not subtree of original item.
     if (!container._isChildOfItem(_dragging!)) {
-    // Find the closest one.
-    if (container.index.length > maxIndexes) {
-        maxIndexes = container.index.length;
-        closestContainer = container;
-    }
+        // Find the closest one.
+        if (container.index.length > maxIndexes) {
+            maxIndexes = container.index.length;
+            closestContainer = container;
+        }
     }
 }
     \end{minted}

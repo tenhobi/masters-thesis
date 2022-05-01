@@ -23,7 +23,7 @@ For the~design of the~game \myAppName{}, the~development of an~application for t
 \begin{figure}
     \centering
     \includegraphics[width=1\linewidth]{assets/design/cors.png}
-    \caption{The~CORS Mechanism}
+    \caption{The~CORS Mechanism~\cite{a2022_crossorigin}}
     \label{fig:design:cors-mechanism}
 \end{figure}
 
@@ -37,7 +37,7 @@ Its purpose is to protect users and their cookies and other stuff stored in the~
 Not enforcing the~same-origin policy could be a~potential risk for applications, e.g., banks that use cookies to verify that you are who you are, and using some malicious software attackers could dry out bank accounts.
 That is not an~issue on desktop and mobile because cookies are stored inside applications' storage, and other applications cannot access their cookies; therefore, these data can not be stolen.
 The~essential idea from this concept is that this is not the~applications' fault; it is the~browsers' fault.
-Servers set the~\mintinline{text}|Access-Control-Allow-Origin| header, and if matched with the~origin, a~browser allows the~application to view and process its response. the~header must be in format \mintinline{text}/Access-Control-Allow-Origin: <origin> | */.
+Servers set the~\mintinline{text}|Access-Control-Allow-Origin| header, and if matched with the~origin, a~browser allows the~application to view and process its response. The~header must be in format \mintinline{text}/Access-Control-Allow-Origin: <origin> | */.
 The~header can also be set with wildcards to relax the~CORS specification.
 Communication between an~application and a~server with same-origin and cross-origin requests and their responses can be seen in the~figure~\ref{fig:design:cors-mechanism}.
 
@@ -280,7 +280,7 @@ Concepts are simple in nature and have a~fast learning curve.
 \begin{description}
     \item[Observables] Represent states in the~form of any object with data, from numbers to complex objects.
     Data are reactive, which means that each change will notify each observer.
-    \item[Actions] Describe changes in the~states of observables. Observables can be changed directly, but actions add semantic meaning, so instead of calling \mintinline{text}{value++} directly, the~\mintinline{text}{increment()} action should be called. the~action triggers a~state change.
+    \item[Actions] Describe changes in the~states of observables. Observables can be changed directly, but actions add semantic meaning, so instead of calling \mintinline{text}{value++} directly, the~\mintinline{text}{increment()} action should be called. The~action triggers a~state change.
     \item[Reactions] Automatically monitor state changes. a~reaction is made immediately after each change.
 \end{description}
 

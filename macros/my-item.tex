@@ -3,3 +3,4 @@
 % 1 - description
 
 \newcommand{\myItem}[1]{\item{\textbf{#1} --}}
+\WithSuffix\newcommand\myItem*[1]{\item[\refstepcounter{enumi}(*\number\value{enumi})]{xyz \textbf{#1} --}}

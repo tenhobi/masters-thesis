@@ -27,7 +27,7 @@ Game missions aim to provide players with a~fun aspect.
 The~game challenges players, who have to think, but their focus is to move or control their character, not focus on learning and practicing programming concepts.
 
 Story selection contains a~name and a~description of a~story and its count of missions.
-Mission selection of a~specific story contains its missions in order.
+Mission selection of a~specific story contains its missions in \mbox{order}.
 Each mission also contains graphics representing its type; a~book for a~storytelling mission, a~university hat for a~learning mission, and a~boat for a~game mission.
 A game mission also contains additional statistics information in the~form of crowns.
 Game missions can have up to three crowns; one~--- the~biggest~--- for completing a~mission, one for meeting the~size, and one for completing the~speed criteria.
@@ -47,27 +47,30 @@ Each command is also displayed with a~mark on execution, indicating that that co
 Players can show or hide descriptions and reset, save, or run a~game using control buttons.
 While a~game is in progress, players can not alter the~commands, but they can stop the~running game. 
 
-There are only basic commands available for the~initial story and its missions.
-Those commands are \mintinline{text}{move <direction>}, to move the~character in a~direction; \mintinline{text}{put mark}, to place a~mark to a~current cell; \mintinline{text}{grab mark}, to pick up mark from a~current cell; \mintinline{text}{if <condition>} to conditionally execute inner commands; and \mintinline{text}{while}, to conditionally loop and execute inner commands.
-Used direction is initially \mintinline{text}{?}, meaning the~player has to change it to a~valid state.
-They can choose from \mintinline{text}{up}, \mintinline{text}{right}, \mintinline{text}{down}, and \mintinline{text}{left}.
-Similarly, the~used condition is also initially \mintinline{text}{?}.
-Players can choose from conditions \mintinline{text}{can move up}, \mintinline{text}{can move right}, \mintinline{text}{can move down}, \mintinline{text}{can move left}, \mintinline{text}{can put mark}, and \mintinline{text}{can grab mark}.
+There are only basic commands available for the~initial story and\linebreak{}its missions.
+Those commands include a~command to move the character in a~direction, place a~mark on a~current cell, grab a~mark from a~current cell, and conditionally check once or repeatedly.
+Players can choose from directions up, right, bottom, and left.
+Similarly, they can choose from conditions based on the~current direction or whether they can place or grab a~mark.  
+% Those commands are \mintinline{text}{move <direction>}, to move the~character in a~direction; \mintinline{text}{put mark}, to place a~mark to a~current cell; \mintinline{text}{grab mark}, to pick up mark from a~current cell; \mintinline{text}{if <condition>} to conditionally execute inner commands; and \mintinline{text}{while}, to conditionally loop and execute inner commands.
+% Used direction is initially \mintinline{text}{?}, meaning the~player has to change it to a~valid state.
+% They can choose from \mintinline{text}{up}, \mintinline{text}{right}, \mintinline{text}{down}, and \mintinline{text}{left}.
+% Similarly, the~used condition is also initially \mintinline{text}{?}.
+% Players can choose from conditions \mintinline{text}{can move up}, \mintinline{text}{can move right}, \mintinline{text}{can move down}, \mintinline{text}{can move left}, \mintinline{text}{can put mark}, and \mintinline{text}{can grab mark}.
 
-Players can pick and place commands from the~command palette in the~default place or into the~commands' inner place if they have one.
-Drag-and-drop gestures can also reorder commands.
+Players can pick and place commands from the~command palette in\linebreak{}the~default place or into the~commands' inner place if they have one.
+\linebreak{}Drag-and-drop gestures can also reorder commands.
 The~position of dragged commands has the~same graphics but has half opacity.
 Commands dragged out of the~palette do not have a~position, but their position is synced after the~first pass over the~default or inner places.
-And they can be thrown away by dragging command away from the~default or inner place.
+And they can be thrown away by\linebreak{}dragging command away from the~default or inner place.
 Commands dragged out have quarter opacity to signify that the~command will be removed.
 
 As has been mentioned, the~grid contains cells of different types.
 Some of the~cells are walkable, and some of them are non-walkable.
 Walkable cells are empty, and players can put and grab marks from them.
 Non-walkable cells represent natural structures like walls, lakes, or forests.
-Players cannot walk to those cells; otherwise, they will throw an~error.
+Players cannot walk to those cells.
 
-The~game mission screen shows a~status dialog after a~running game finishes.
+The~game mission shows a~status dialog after a~running game finishes.
 The~dialog is either with success or failure statuses.
 The~failure dialog also shows a~note of which specific error occurred.
 The~error can represent invalid commands, invalid moves, invalid use of put-mark command, invalid use of grab-mark command, or exceeding the~speed limit.
@@ -88,14 +91,15 @@ Each story then contains rows for each of its game missions containing a~mission
 \subsection{Profile}
 \label{analysis:game:profile}
 
-Players can also display their profiles to check the~used username, email address, or description.
+Players can also display their profiles to check the~used username, email \mbox{address}, or description.
 The~corresponding screen should be the~first screen they are introduced to after the~registration.
 
 \subsection{Signing Up, In and Out}
 \label{analysis:game:sign-up-in-out}
 
 The~game has a~main menu containing different buttons that control navigation between screens.
-It consists of the~main screen button, stories button, stats button, profile button, about-us button, and sign-out button.
+It consists of the~main screen button, stories \mbox{button}, stats button, profile button, about-us button, and sign-out button.
+\linebreak
 If the~player is not signed in, the~menu contains sign-up and sign-in buttons.
 
 To sign up, the~player has to fill in the~username, password, real name, email, and description text fields.
@@ -107,7 +111,7 @@ If any error occurs for any of both processes, a~fail message is displayed.
 \subsection{Game Information}
 \label{analysis:game:game-information}
 
-The~game must have a~space to display information about the~approach, contact, guidelines, help, info, press, privacy, and terms.
+The~game must have a~space to display information about the~approach, \mbox{contact}, guidelines, help, info, press, privacy, and terms.
 It should all be on one screen or divided into connected subscreens.
 These screens should be accessible from the~main menu.
 A small sub-menu with references to these screens should be on all screens if their design allows that.
@@ -116,12 +120,12 @@ A small sub-menu with references to these screens should be on all screens if th
 \label{analysis:game:future-features}
 
 Not every feature can be made for the~prototype version.
-Therefore, other analyzed features suggested for future development are recognized in this section.
+Therefore, other analyzed features suggested for future development of the~game are recognized in this section.
 
 \subsubsection{Game Mission}
 
 First, game missions will introduce more commands players can use.
-One of the~first features that should be implemented in the~future is the~feature of creating separate function-like commands.
+One~of the~first features that should be implemented in the~future is the~feature\linebreak{}of~creating separate function-like commands.
 That means that players will be able to create commands that can be reused both in the~default command list, in other function-like commands, and even in the~current function-like command to allow using programming constructs like recursion.
 These commands will be added to the~command palette in a~special section.
 Players will be able to update them after invoking a~particular action to switch the~default command list to the~block's command list.
@@ -151,7 +155,7 @@ There could also be another type of mission, practice.
 This mission would check that players understand storytelling and learning missions.
 Practice missions can contain a~simple quiz with multiple simple yes-no or ABC quiz-like questions.
 
-With these concepts, game missions could set up prerequisites, so players do not run game missions before understanding the~story and learning materials.
+With these concepts, game missions could set up prerequisites, so \mbox{players} do not run game missions before understanding the~story and learning\linebreak{}materials.
 Another option could be that by completing these quizzes, players receive additional points.
 
 \subsubsection{Social Features}
@@ -159,14 +163,14 @@ Another option could be that by completing these quizzes, players receive additi
 In the~prototype, players cannot interact with other players.
 Social features could include a~support forum, chats, global statistics, public profiles, etc.
 
-Support forum would introduce players with the~option to ask other players to help them with an~understanding of Karel's story, learning concepts, or with their algorithms.
-On the~forum, players would be displayed with their username and a~count of crowns, representing their gained points from stories and their completed stories.
+Support forum would introduce players with the~option to ask other \mbox{players} to help them with an~understanding of Karel's story, learning concepts, or with their algorithms.
+On the~forum, players would be displayed with their \mbox{username} and a~count of crowns, representing their gained points from \mbox{stories} and their completed stories.
 Players could upvote questions and answers so people can see the~most relevant answers first.
 
 Global statistics and public profiles could be beneficial in terms of gamification.
 These features would enable social challenges with friends.
 Challenges are one of the~features article~\cite{nand_2019_engaging} promoted as enhancing players' learning.
-It also makes the~game more engaging.
+It~also makes the~game more engaging.
 
 Public profiles also make it possible to friend other players.
 Then players can even compete with their friends.
@@ -202,7 +206,7 @@ If tools or machines use some logic, proper input or output fields are displayed
 
 \subsubsection{Managers Screen}
 
-The~game contains multiple screens with texts that managers should easily update.
+The~game contains multiple screens with texts that managers should \mbox{easily} update.
 Those screens are the~main screen and subscreens of the~About Us screen, i.e., approach, contact, guidelines, help, info, press, privacy, and terms screens.
 For these screens, managers can update their content.
 Most can be done by editing their text content using the~Markdown format.
@@ -220,9 +224,9 @@ Teachers can see a~name, points gained this week, total points, and students' st
 They can also order the~list by each column to better analyze students in need of help or students that exceed expectations.
 
 Teachers can also display an~archive of past assignments.
-For these assignments, they can display a~list of results.
-Results display a~name, total assignment score, if the~assignment is completed, etc.
-These data can also be generated so teachers can print them or use them in sheets or other applications.
+For these\linebreak{}assignments, they can display a~list of results.
+Results display a~name, \mbox{total} assignment score, if the~assignment is completed, etc.
+These data can also be generated so teachers can print them or use them in sheets or other applications that can process it.
 
 From a~student's point of view, the~student can see their classrooms.
 Inside the~classroom view, they can compare themselves with other students' results if the~visibility of the~classroom or assignment allows that.
@@ -234,8 +238,8 @@ Teachers can also pin messages to the~noticeboard that can be used as a~place wi
 
 \subsubsection{Parent Screen}
 
-Parents can register children under their profile to monitor them and set up some assignments.
-They can see the~results in the~stories of all of their children, and they can also see scores received this the~current week.
+Parents can register children under their profile to monitor them and set~up some assignments.
+They can see the~results in the~stories of all of their \mbox{children}, and they can also see scores received this the~current week.
 
 From the~children's point of view, they cannot see their parent's data.
 They can only see what account is set up as their parent.

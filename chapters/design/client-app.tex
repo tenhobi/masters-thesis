@@ -1,7 +1,7 @@
 \section{Client Application}
 \label{design:client-application}
 
-This section discusses the~design aspects of the~client application of the~designed game.
+This section discusses the~design aspects of the~client application of the\linebreak{}designed game.
 It discusses platforms that can be used and their limitations and benefits.
 Then there is a~discussion on different options of frameworks to use according to platform specifications with extra pieces of information about the~selected framework and how it works.
 Also, the~client architecture is described and designed according to previous chapters. 
@@ -10,7 +10,7 @@ And last but not least, the~state management selection and options discussion is
 \subsection{Platforms}
 
 The~designed game targets especially web and desktop platforms.
-One of the~non-functional requirements is that it should be possible to extend the~game to other platforms, like mobiles.
+One of the~non-functional requirements is that it should be possible to extend the\linebreak{}game to other platforms, like mobiles.
 The~web and desktop platforms are pretty similar.
 They are both used on computers and use similar resolutions and workflow.
 On the~other hand, the~mobile platform uses entirely different resolutions, and its users use their hands to control the~screen's content.
@@ -35,9 +35,11 @@ This mechanism is called CORS, and it means Cross-Origin Resource Sharing.
 As stated in~\cite{a2022_crossorigin}, CORS is a~mechanism that lets servers specify trusted origins using HTTP headers.
 Its purpose is to protect users and their cookies and other stuff stored in the~browser specifically.
 Not enforcing the~same-origin policy could be a~potential risk for applications, e.g., banks that use cookies to verify that you are who you are, and using some malicious software attackers could dry out bank accounts.
-That is not an~issue on desktop and mobile because cookies are stored inside applications' storage, and other applications cannot access their cookies; therefore, these data can not be stolen.
+That is not an~issue on desktop and mobile because cookies are stored inside applications' storage, and other\linebreak{}applications cannot access their cookies; therefore, these data can not be stolen.
 The~essential idea from this concept is that this is not the~applications' fault; it is the~browsers' fault.
-Servers set the~\mintinline{text}|Access-Control-Allow-Origin| header, and if matched with the~origin, a~browser allows the~application to view and process its response. The~header must be in format \mintinline{text}/Access-Control-Allow-Origin: <origin> | */.
+Servers set the~\mintinline{text}|Access-Control-Allow-Origin| header, and if matched with the~origin, a~browser allows the~application\linebreak{}to view and process its response. The~header must be in format
+\linebreak
+\mintinline{text}/Access-Control-Allow-Origin: <origin> | */.
 The~header can also be set with wildcards to relax the~CORS specification.
 Communication between an~application and a~server with same-origin and cross-origin requests and their responses can be seen in the~figure~\ref{fig:design:cors-mechanism}.
 
@@ -90,13 +92,6 @@ React Native has brought many benefits of reactive views to mobile applications.
 React Native nowadays also focuses on developing for Windows, macOS, and the~web using React Native Windows, ReactNative macOS, and React Native Web~\cite{a2022_react}.
 All mentioned projects use bridges to communicate with the~platform.
 
-\begin{figure}
-    \centering
-    \includegraphics[width=1\linewidth]{assets/design/flutter.png}
-    \caption{Flutter~\cite{leler_2017_whats}}
-    \label{fig:design:flutterview}
-\end{figure}
-
 The~Flutter framework provides an~entirely different approach.
 It has been historically developed as a~cross-platform framework for development on mobile devices.
 Today, however, the~framework also supports development for the~web and desktops.
@@ -104,9 +99,16 @@ According to~\cite{leler_2017_whats}, unlike previous frameworks, which used web
 It uses custom widgets that are rendered to the~platform's canvas.
 That also means that no matter the~operating system version, the~look and feel are always the~same because they do not rely on OEM widgets. 
 
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{assets/design/flutter.png}
+    \caption{Flutter~\cite{leler_2017_whats}}
+    \label{fig:design:flutterview}
+\end{figure}
+
 \subsubsection{Flutter}
 
-Flutter is an~open-source framework developed by Google~\cite{a2022_flutter} that uses the~Dart programming language, which allows the~ahead-of-time (AOT) compilation into native cross-platform code~\cite{leler_2017_whats}.
+Flutter is an~open-source framework developed by Google~\cite{a2022_flutter} that uses the Dart programming language, which allows the~ahead-of-time (AOT) compilation into native cross-platform code~\cite{leler_2017_whats}.
 In addition, it allows the~just-in-time (JIT) compilation, which will enable developers to view changes almost instantly.
 Compiling into native code provides many benefits, such as execution speed and performance.
 \textcquote{leler_2017_whats}{The~fact that Flutter is the~only mobile SDK that provides reactive views without requiring a~JavaScript bridge should be enough to make Flutter interesting and worth trying, but there is something far more revolutionary about Flutter, and that is how it implements widgets.}
@@ -129,7 +131,7 @@ The~basics of Flutter are contained in the~engine layer, which is created primar
 The~engine is responsible for any rendering which uses the~Skia library.
 The~Skia library is a~2D graphics library used as a~graphics engine, e.g., Google Chrome, Android, Flutter~\cite{skia_2022_skia}.
 The~engine mediates the~framework using \mintinline{text}|dart:ui| libraries.
-The~framework layer then provides access to a~reactive framework in the~Dart language and provides a~range of widgets, layouts, gesture detectors, animation support, etc.
+The~framework layer then provides access to a~reactive framework in the~Dart language\linebreak{}and provides a~range of widgets, layouts, gesture detectors, animation support, etc.
 Developers usually use this layer.
 
 A particular case is Flutter's web support~\cite{a2022_flutter_architecture}.
@@ -141,6 +143,7 @@ However, the~engine layer is written in C/C++; therefore, this layer cannot be u
 Similarly, it cannot use the~embedder layer to render as it is designed to run with the~operating system.
 Flutter on the~web uses a~reimplemented version of the~engine above the~standard browser APIs.
 This unique browser layer currently has two strategies to render.
+\linebreak
 It can use HTML mode to render HTML, CSS, Canvas, and SVG.
 Or it can use WebGL mode, which uses CanvasKit, a~particular version of Skia library compiled to WebAssembly.
 The~layers used in the~web version of Flutter can be seen in the~figure~\ref{fig:design:flutterweb}.
@@ -159,6 +162,8 @@ The~layers used in the~web version of Flutter can be seen in the~figure~\ref{fig
     \label{fig:design:flutterweb}
 \end{figure}
 
+\pagebreak
+
 Widgets and Composition sections in the~Flutter documentation~\cite{a2022_flutter_architecture} also mention that Flutter uses widgets as building blocks of the~user interface.
 Each widgets nests inside its parent, and together they form one hierarchy of widgets.
 The~hierarchy of widgets also declares widgets' size, styles, or transformations.
@@ -166,9 +171,10 @@ Basic widgets are \mintinline{text}{Collumn} and \mintinline{text}{Row}, for lay
 Widgets use composition rather than an~extension, and they are usually split into small single-purpose widgets.
 
 The~framework uses two types of widgets: stateful and stateless~\cite{a2022_flutter_architecture}.
+\linebreak
 If the~widget does not change over time and therefore does not have a~state itself, the~\mintinline{text}{StatelessWidget} widget is used.
 If the~widget changes its state, the~\mintinline{text}{StatefulWidget} is used.
-Such a~widget is assigned a~unique \mintinline{text}{State} object that holds the~state of the~widget, and the~widget must call \mintinline{text}{setState()} method each time its state changes and needs to be redrawn.
+Such a~widget is assigned a~unique \mintinline{text}{State}\linebreak{}object that holds the~state of the~widget, and the~widget must call \mintinline{text}{setState()} method each time its state changes and needs to be redrawn.
 The~framework responds to the~call to this method and redraws it in the~next cycle.
 Separating widgets into stateful and stateless improves application performance by not having to browse and render unchanged widgets.
 In addition, thanks to a~separate state and widget, the~framework can support a~hot reload function, which allows the~app to rebuild widgets, i.e., appearance, but maintain the~state of the~respective widgets if they are in the~same place and the~framework can map them.
@@ -177,7 +183,8 @@ Whenever it is needed to redraw a~widget, its \mintinline{text}{build()} method 
 Calling the~\mintinline{text}{build()} method, as mentioned in~\cite{a2022_flutter_architecture}, returns the~subtree of widgets according to which the~UI is rendered.
 Because each widget can consist of others, a~tree of all widgets must be made recursively.
 During this time, Flutter creates a~tree element that contains an~element for each widget.
-The~element represents a~widget instance and represents either the~element that participates in the~rendering (\mintinline{text}{RenderObjectElement}) or the~element that engages in composing the~hierarchy.
+\linebreak
+The~element represents a~widget instance and represents either\linebreak{}the~element that participates in the~rendering (\mintinline{text}{RenderObjectElement})\linebreak{}or the~element that engages in composing the~hierarchy.
 Another tree is created from this tree, a~tree that defines an~abstract model for layout and rendering consisting of the~general \mintinline{text}{RenderObject}.
 During the~build phase, Flutter goes through the~\mintinline{text}{RenderObjectElement} in the~element tree and creates a~specific \mintinline{text}{RenderObject} for each.
 Flutter traverses the~tree and transmits the~constraints downwards to determine the~layout, while the~descendants transmit their constraints, which must respect the~constraints.
@@ -225,14 +232,16 @@ The~data layer contains implementations from the~business contracts layer, and i
 The~purpose of this layer is to implement repositories that communicate with the~API server.
 Repositories are simple workers that process communication with the~external world.
 
-And last but not least, the~presentation layer implements the~UI of the~client application.
+And last but not least, the~presentation layer implements the~UI of the client application.
 It uses services' contracts to request specific implementations by the~dependency injection tool registered with services and repositories in the~main method.
 The~dependency injection tool provides repositories that are used by the~registered services.
 
 The~main method registers all business contracts layer's interfaces to its dependency injection (DI) container and assigns them with specific implementations from business data layers.
 Then it runs the~app.
 
-As you can see from the~description and the~figure~\ref{fig:design:clientarchitecture}, the~client architecture follows the~SOLID principles, mainly the~dependency inversion principle. 
+\pagebreak
+
+As can be seen from the~description and the~figure~\ref{fig:design:clientarchitecture}, the~client architecture follows the~SOLID principles, mainly the~dependency inversion principle. 
 
 \subsection{State Management}
 
@@ -256,26 +265,28 @@ A better definition of states from an~architectural point of view is \textcquote
 States are often divided into ephemeral and app states.
 
 An ephemeral state, also often referred to as a~UI state, is a~state that is relevant to only one widget, and only that widget works with it~\cite{a2022_differentiate}.
-In this case, there is no need for the~state to be shared in any way with other parts of the~application, as this would add unnecessary communication and the~need for more complex logic.
+In this case, there is no need for the~state to be shared in any way with other parts of the application, as this would add unnecessary communication and the~need for more complex logic.
 An example of such a~state can be the~current navigation tab.
-For an~ephemeral state, it is enough to use the~\mintinline{text} {StatefulWidget} widget and use the~\mintinline{text}{setState ()} method to notify the~widget and then redraw it.
+For an~ephemeral state, it is enough to use the\linebreak{}\mintinline{text}{StatefulWidget} widget and use the~\mintinline{text}{setState()} method to notify the~widget and then redraw it.
 
 In contrast, the~app state, sometimes referred to as the~shared state, is part of several parts of the~application~\cite{a2022_differentiate}.
 So this state is trivially not ephemeral.
 App state needs more complex management because it is used by multiple parts of the~application, which are often independent and far apart.
-The~choice of the~appropriate type of management for such a~state depends on the~complexity of the~application.
-An example of an~app state can be the~management of information about a~logged-in user, a~shopping cart in an~e-shop, settings, etc.
+The~choice of the~appropriate type of management for such a~state depends on the\linebreak{}complexity of the~application.
+An example of an~app state can be the\linebreak{}management of information about a~logged-in user, a~shopping cart in an \mbox{e-shop}, settings, etc.
 
 Whether to use ephemeral or app state may not always be clear.
+\linebreak
 Ephemeral states can also be used outside the~widget by passing callbacks; however, if a~callback is passed more than one level, it will probably be possible to use another solution.
 \textcquote{a2022_differentiate}{The~rule of thumb is: Do whatever is less awkward.}
 Some of the~most used state management tools are MobX, Redux, and BLoC.
 
 \subsubsection{MobX}
 
-MobX is a~state management library with three concepts: Observables, Actions, and Reactions~\cite{a2022_mobxdart}.
-This is an~implementation of the~observer pattern.
+MobX is a~state management library with three concepts: Observables,\linebreak{}Actions, and Reactions~\cite{a2022_mobxdart}.
+This is an~implementation of the~observer \mbox{pattern}.
 Concepts are simple in nature and have a~fast learning curve.
+According to~\cite{a2022_mobxdart}, the MobX library uses the~following concepts:
 
 \begin{description}
     \item[Observables] Represent states in the~form of any object with data, from numbers to complex objects.
@@ -288,7 +299,7 @@ Concepts are simple in nature and have a~fast learning curve.
 
 Redux is a~predictable and centralized state container.
 It is one of the~most known libraries on state management.
-According to~\cite{brianegan_2021_fluttercommunityreduxdart}, it works with three concepts: Actions, Reducers, and Store.
+According to~\cite{brianegan_2021_fluttercommunityreduxdart}, it works with three concepts: Actions, Reducers, and Store:
 
 \begin{description}
     \item[Actions] Represent information sent from the~application to the~store and are its only data source.
@@ -306,7 +317,7 @@ According to~\cite{paolosoares_2018_flutter} these design rules are:
 
 \begin{enumerate}
     \item Inputs and outputs are simple
-    \mintinline{dart}|Stream|/\mintinline{dart}|Sink| only.
+    \mintinline{text}|Stream|/\mintinline{text}|Sink| only.
     \item Dependencies must be injectable and platform agnostic.
     \item No platform branching allowed.
     \item Implementation can be whatever you want
@@ -318,9 +329,9 @@ These rules describe the~relationship between the~UI component and the~BLoC comp
 According to~\cite{paolosoares_2018_flutter} these rules are:
 
 \begin{enumerate}
-    \item Each \auv{complex enough} component has a~corresponding BLoC.
-    \item Components should send inputs \auv{as is}.
-    \item Components should show outputs as close as possible to \auv{as is}.
+    \item Each \textquote*{complex enough} component has a~corresponding BLoC.
+    \item Components should send inputs \textquote*{as is}.
+    \item Components should show outputs as close as possible to \textquote*{as is}.
     \item All branching should be based on simple BLoC boolean outputs.
 \end{enumerate}
 
@@ -335,6 +346,9 @@ This library works with four basic concepts: Events, States, Transitions, Blocs.
 In parallel, the~library also provides a~version called Cubit, which works with functions instead of events.
 That allows events to be triggered synchronously using functions instead of adding an~event to the~Stream.
 Cubit can be easier for smaller applications that can handle more straightforward logic.
+According to~\cite{angelov_2022_bloc}, the Bloc library uses the\linebreak{}following concepts:
+
+\pagebreak
 
 \begin{description}
     \item[Events] Represent events in the~form of any object.

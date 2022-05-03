@@ -1,7 +1,7 @@
 \section{Client Application}
 
 In the~design chapter~\ref{chapter:design}, the~following technologies were selected for the~client application implementation.
-According to the~design, the~implemented application must support web and Windows and other desktop platforms, respectively.
+According to the~design, the~implemented\linebreak{}application must support web and Windows and other desktop platforms, respectively.
 It must also be easily extensible to mobile devices.
 Therefore, the~Flutter framework was chosen, enabling cross-platform development on web, desktop, and mobile platforms.
 The~Bloc library was chosen for the~state management app state, which, thanks to its asynchronous approach, provides a~robust implementation and allows easy expansion or modification.
@@ -9,12 +9,13 @@ The~Bloc library was chosen for the~state management app state, which, thanks to
 \subsection{Used Technologies}
 
 The~Flutter framework in version 2.10.5 was used on its stable channel.
+\linebreak
 This version uses the~Dart programming in version 2.16.2.
-The~package \mintinline{text}|flutter_bloc| in version 8.0.1 was used in the~presentation layer for providing the~Bloc library.
-This package provides the~basic implementation of the~Bloc library and supporting widgets and other things for use with the~Flutter framework.
+The~package\linebreak{}\mintinline{text}|flutter_bloc| in version 8.0.1 was used in the~presentation layer for providing the~Bloc library.
+This package provides the~basic implementation of the~Bloc library and supporting widgets and other things for use with the \mbox{Flutter} framework.
 
 The~package \mintinline{text}|get_it| in version 7.2.0 was used for dependency injection in the~presentation layer.
-This package allows registering specific class implementations to their interfaces.
+This package allows registering specific class\linebreak{}implementations to their interfaces.
 Registered classes are then located from anywhere in the~code.
 
 The~data layer uses the~package \mintinline{text}|http| in version 0.13.4 for the~HTTP communication.
@@ -44,14 +45,14 @@ Command blocks can be dragged to the~command block list from this palette.
 \end{figure}
 
 Command blocks use widgets for their implementation.
-The~initial idea for the~implementation was to use one of the~already existing widgets of the~Flutter framework.
+The~initial idea for the~implementation was to use one of the~already existing widgets of the~\mbox{Flutter} framework.
 Flutter contains several widgets that could handle similar functionality, so several options have been tried.
 
 One of the~ways to implement this could be \mintinline{text}|ReorderableListView| widget from the~Flutter Material library.
 According to~\cite{a2022_material}, this widget works like a~regular widget that positions its children in a~column, provides scrolling, and allows to drag items within the~list.
 This widget provides different drag-and-drop behavior based on whether it's used on a~mobile device where the~player uses a~finger to drag or on a~web where the~player uses a~mouse to drag elements.
 All elements of the~list must have a~unique key.
-The~\mintinline{text}|ReorderableListView| widget would work well if it did not need to be able to nest command blocks.
+The \mintinline{text}|ReorderableListView| widget would work well if it did not need to be able to nest command blocks.
 However, this widget does not support element nesting, and a~similar solution using this widget failed.
 In addition, the~elements in this widget only drag inside their container, which is also not required.
 The~elements should be possible to drag in all directions and across different containers or drag elements from the~command block palette.
@@ -69,7 +70,7 @@ It would also be challenging to implement block reordering.
 Additional empty \mintinline{text}|DraggableTarget| widgets would have to be added to all the~used \mintinline{text}|DraggableTarget| widgets to check if the~player moves the~block to one of the~locations between blocks.
 After moving the~block, a~recalculation would have to follow, and a~similar situation would be repeated.
 
-Command blocks must be rendered declaratively because widgets in the~Flutter framework are rendered declaratively.
+Command blocks must be rendered declaratively because widgets in the \mbox{Flutter} framework are rendered declaratively.
 Because the~position of all blocks would have to be complicatedly mapped to the~state, the~second proposed option could not be implemented.
 Because of this, a~custom solution was created.
 The~solution contains two essential elements, containers, and blocks.
@@ -81,13 +82,14 @@ These commands are of two basic abstract types and can be group or single comman
 Each command has its class that extends one of these abstract classes.
 A special case is the~root command class, which is used as the~root of the~tree structure.
 That makes a~declarative rendering of the~structure.
-It uses its widget \mintinline{text}|CommandItem|, to which an~instance of the~command is passed as an~argument, and according to its abstract type, other \mintinline{text}|CommandItem| widgets are recursively added to the~widget tree.
+\linebreak
+It uses its widget \mintinline{text}|CommandItem|, to which an~instance of the~command is passed as an~argument, and according to its abstract type, other \mintinline{text}|CommandItem| \mbox{widgets} are recursively added to the~widget tree.
 These \mintinline{text}|CommandItem| widgets then add the~widget \mintinline{text}|CommandBlock| to the~structure, which solves the~visual rendering of the~command block, i.e., displays the~colored rectangle of the~command.
 The~entire display of list command blocks takes place in the~\mintinline{text}|CommandsView| widget.
 
 The~moving command blocks feature is missing to complete the~required functions.
 For \mintinline{text}|CommandBlock| widget to drag, the~player must hold and move it.
-As the~player drags the~block, the~\textquote*{shadow} (as can be seen in the~figure~\ref{fig:commandblocks}) of the~original block must remain beneath it, which moves to the~location where the~block could be placed as it is being dragged.
+As the~player drags the~block, the~\textquote*{shadow} (as can be seen in the\linebreak{}figure~\ref{fig:commandblocks}) of the~original block must remain beneath it, which moves to the location where the~block could be placed as it is being dragged.
 It must also be determined in which specific container this block is to be placed.
 Whether in the~main or in one of the~nested, which belong to the~commands that have nested blocks.
 If the~block is moved outside of any container, the~\textquote*{shadow} will soften, indicating that it will be removed if the~player releases the~block.
@@ -119,8 +121,10 @@ If found, the~block closest to the~dragged block is also found.
 That determines the~position to which the~block's \textquote*{shadow} should move.
 The~state is updated, and Flutter declaratively redraws the~command blocks, so the~\textquote*{shadow} visually moves to the~correct position.
 
-Iteration through all registered containers is used for the~lookup of the~nearest container.
-The~current container's \mintinline{text}|RenderObject| or \mintinline{text}|RenderBox|, respectively, is requested using \mintinline{dart}|final containerRender = container.context.findRenderObject() as RenderBox;|.
+\pagebreak
+
+Iteration through all registered containers is used for the~lookup of the nearest container.
+The~current container's \mintinline{text}|RenderObject| or \mintinline{text}|RenderBox|,\linebreak{}respectively, is requested with \mintinline[breaklines,breakanywhere]{dart}|container.context.findRenderObject() as RenderBox|.
 Then, as can be seen in the~code~\ref{listing:closest-container}, the~position of the~container is compared with the~cursor position, and then, if the~container is not part of a~block (that is if the~container is not a~block subcommand), the~nearest such container is found.
 A similar algorithm finds the~nearest block below.
 
@@ -167,7 +171,7 @@ Such logic could be created using a~custom implementation using the~\mintinline{
 Implementing it this way for all applications can be annoying and error-prone.
 Flutter provides the~\mintinline{text}|Overlay| widget, which implements exactly this functionality.
 This can be used to display input suggestions, tooltips, or anything that needs to float above the~screen.
-According to~\cite{a2022_material}, \mintinline{text}|Overlay| is \textquote{A stack of entries that can be managed independently.}
+According to~\cite{a2022_material}, \mintinline{text}|Overlay| is \textquote{A stack\linebreak{}of entries that can be managed independently.}
 \mintinline{text}|Overlay|, therefore, maintains its \mintinline{text}|Stack| and manages widgets that are added to it.
 This widget can be created directly, or it can be used already pre-created one using the~\mintinline{text}|Navigator|.
 An example of an~overlay for a~command block can be seen in the~figure~\ref{fig:overlay}.
@@ -177,12 +181,12 @@ To create an~overlay, the~\mintinline{text}|insert()| method needs to be called 
 According to~\cite{a2022_material}, \mintinline{text}|OverlayEntry| is the~object that \mintinline{text}|Overlay| use to represent its items.
 
 In addition, the~custom \mintinline{text}|OverlayButton| widget, which is used for overlays in the~game mission, menu, etc., detects if the~overlay overflows the~screen to the~right or left and adjusts it to be at its edge instead.
-Because in some cases, it is necessary to ensure that the~overlay moves with the~widget that triggered it.
+Because in some cases, it is necessary to ensure that the~overlay moves with the \mbox{widget} that triggered it.
 For example, when scrolling, it is necessary to synchronize the~position on the~screen.
 It can also be used only to synchronize the~position, whether it will change later.
-That can be implemented manually, but Flutter has ready functionality for this.
+That can be implemented \mbox{manually}, but Flutter has ready functionality for this.
 Flutter provides the~ability to create a~\mintinline{text}|LayerLink| object that allows linking a~follower to a~target~\cite{a2022_material}.
-\mintinline{text}|OverlayEntry| can use the~\mintinline{text}|CompositedTransformFollower| widget to set the~follower and \mintinline{text}|CompositedTransformTarget| to set the~target.
+\mintinline{text}|OverlayEntry| can use the~\mintinline{text}|CompositedTransformFollower| widget to set the~follower and\linebreak{}\mintinline{text}|CompositedTransformTarget| to set the~target.
 The~follower will automatically follow the~position of the~target.
 \mintinline{text}|OverlayButton| detects enter and end events on the~widget and displays the~overlay accordingly.
 
@@ -226,9 +230,11 @@ This process, therefore, elegantly creates a~command tree structure.
 \subsection{Router and Navigation}
 
 Flutter initially used an~imperative approach to routing and navigation.
+\linebreak
 According to~\cite{ryan_2020_navigator}, this was problematic, and it was challenging to push or pop several screens or otherwise change the~state of the~screen stack.
 A new Navigator 2.0 API has been added to Flutter, allowing control of the~navigator declaratively.
 A schema of Navigator 2.0 can be seen in the~figure~\ref{fig:navigator}.
+\linebreak
 According to~\cite{kietay_2021_navigator}, the~imperative approach can get the~application into trouble because it does not separate app logic from the~UI logic.
 UI logic is separated from app logic using a~declarative approach.
 UI logic displays screens according to data, respectively depending on the~application's state.
@@ -246,15 +252,16 @@ Convert app state to navigator state (build method).
 Convert app state to Abstract Data Type (ADT) and further to the~path.
 And convert the~path to the~ADT and then to the~app state.
 According to~\cite{ryan_2020_navigator}, two new classes are used for this.
-The~\mintinline{text}|RouteInformationParser| class, which uses the~\mintinline{text}|parseInformationRouter| to convert the~path to the~ADT and uses the~\mintinline{text}|restoreRouteInformation| method to convert the~ADT to the~path.
+The~\mintinline{text}|RouteInformationParser| class, which uses the~method\linebreak{}\mintinline{text}|parseInformationRouter| to convert the~path to the~ADT and uses the\linebreak{}\mintinline{text}|restoreRouteInformation| method to convert the~ADT to the~path.
+\linebreak
 And the~\mintinline{text}|RouterDelegate| class, which uses the~\mintinline{text}|setNewRoutePath| to convert the~ADT to app state and the~\mintinline{text}|currentConfiguration| method to convert app state to the~ADT.
 
 Several screens have been created for the~implemented game, each of which must have an~appropriate representation using a~path, navigation state, and app state.
 According to the~text above, the~Bloc library is used as the~app state, which represents the~app state.
 Of course, this state is only in the~context of routing.
-It contains several states (and therefore screens) that can extend interfaces.
-Interface \mintinline{text}|RequiresAuthentication| is used to indicate those states that require the~user to be able to access them only when logged in.
-This Bloc, therefore, communicates with the~Bloc that manages the~authentication.
+It contains several states (and therefore screens) that can\linebreak{}extend interfaces.
+Interface \mintinline{text}|RequiresAuthentication| is used to indicate those states that require the~user to be able to access them only when logged~in.
+This Bloc, therefore, communicates with the~Bloc that manages the\linebreak{}authentication.
 Before Bloc invokes a~state redirecting to a~given screen, it checks that the~user is signed in if the~future state implements this interface.
 It also contains the~\mintinline{text}|ForbiddenAfterAuthentication| interface, which works very similarly to the~former.
 If the~user tries to get to the~screen, they will be redirected to the~sign-in screen instead.
@@ -286,7 +293,7 @@ That includes both game grid implementation, visual representation of the~game s
 \end{figure}
 
 The~game grid is implemented as a~grid of cells.
-It can be seen in the~figure~\ref{fig:gamegrid}.
+It can be seen in the figure~\ref{fig:gamegrid}.
 These, like command blocks, use widgets to render.
 These widgets are rendered into several types according to the~type of each cell.
 A walkable cell is rendered as an~empty cell that a~robot can walk on.
@@ -312,7 +319,9 @@ The~coordinates are also displayed when you hover over a~cell to make navigation
     \label{fig:gamedialog}
 \end{figure}
 
-In order for the~player to know clearly where they are in each step, the~robot is marked on the~grid with a~figure with a~crown.
+\pagebreak
+
+In order for the~player to know clearly where they are in each step, the robot is marked on the~grid with a~figure with a~crown.
 As the~game progresses, this character moves around the~grid to perform the~tasks assigned by the~visual programming.
 At the~same time, the~currently executed command block is indicated by an~arrow.
 In this way, the~player knows which command is currently being executed and which is responsible for potential unplanned behavior.

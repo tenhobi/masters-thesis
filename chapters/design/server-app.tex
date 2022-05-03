@@ -16,6 +16,7 @@ A web API can be used from a~mobile, desktop, web, or any other application or g
 Web API can also use other web APIs.
 
 One of the~representatives of web API is ASP.NET Web API~\cite{a2022_aspnet}.
+\linebreak
 It is a~web framework that is often used to create websites and APIs using languages such as C\#.
 The~framework supports an~automatic serialization of data classes into the~JSON format.
 It supports built-in support for authentication and authorization with built-in support for standards such as JSON Web Tokens (JWT).
@@ -107,8 +108,8 @@ After processing, the~data are returned to the~controller, creating a~response c
 
 \subsection{Controllers}
 
-Controllers provide Web APIs that process requests using services from the~services layer delivered to the~services contracts layers using the~dependency injection tool.
-Controllers should be designed to cover all use cases of the~developed game.
+Controllers provide Web APIs that process requests using services from the services layer delivered to the~services contracts layers using the~dependency injection tool.
+Controllers should be designed to cover all use cases of the developed game.
 
 There should be a~controller for the~authentication of users.
 That means signing in and signing up for the~game.
@@ -130,6 +131,8 @@ Both endpoints return game, learning, or storytelling mission.
 Additionally, it should also have an~endpoint to update the~game result.
 These endpoints should be locked and available only to authenticated users.
 
+\pagebreak
+
 And finally, the~stats endpoint should return stats for all stories and their mission for the~authenticated user.
 This endpoint should be locked and available only to authenticated users.
 
@@ -140,6 +143,7 @@ They are the~middleware between controllers and repositories and handle addition
 There should be three types of services: a~user service, a~story service, and a~token service.
 
 The~user service should be able to get a~user by their id or username.
+\linebreak
 It should also process login and register processes.
 This service should also know how to hash and verify users' passwords.
 
@@ -148,7 +152,7 @@ Their URL attribute differentiates the~mission and the~story.
 If requesting all missions, a~story URL must be provided.
 All stories do not need additional data.
 
-The~token service needs to contain the~generation of a~token and its verification.
+The~token service needs to contain the~generation of a~token and its\linebreak{}verification.
 The~token is generated based on the~user data object.
 And the~verification is done by passing the~token.
 

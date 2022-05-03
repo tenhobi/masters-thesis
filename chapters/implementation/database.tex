@@ -14,7 +14,7 @@ dotnet tool install --global dotnet-ef
 
 # create a migration
 cd KingKarel
-dotnet ef migrations add "Name of migration"
+dotnet ef migrations add "Name of the migration"
 
 # update the database
 dotnet ef database update
@@ -39,8 +39,8 @@ Inside some of the~string attributes an~encoded JSONs are stored.
 
 Migrations manage the~database from the~server application.
 Entity framework tools support the~creation and updates of migrations.
-That is useful, especially when the~database schema is created using the~ORM from the~code.
+That is useful,\linebreak{}especially when the~database schema is created using the~ORM from the~code.
 Each migration creates a~file with the~\mintinline{text}|Up()| and \mintinline{text}|Down()| methods.
-These methods allow migration tools to apply and undo a~migration.
+These\linebreak{}methods allow migration tools to apply and undo a~migration.
 Migration files are generated to \mintinline{text}|KingKarel/Migrations| directory.
 Useful migration tool's commands can be seen in the~code~\ref{listing:migration}.

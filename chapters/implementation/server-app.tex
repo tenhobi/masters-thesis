@@ -5,11 +5,11 @@ The~design chapter~\ref{chapter:design} selected the~ASP.NET Web API in version 
 All services and repository interface implementations are registered in the~dependency injection tool provided by the~ASP.NET.
 The~dependency injection tool allows automatic injection into constructors, thus abstracting the~process of creating most objects.
 This is a~kind of magic compared to other languages and technologies, but it works well.
-Registration is done in the~\mintinline{text}|Startup| class using \mintinline{text}|IServiceCollection| to register in the~\mintinline{text}|ConfigureServices| method.
+Registration is done in the~\mintinline{text}|Startup| class using \mintinline{text}|IServiceCollection| to register in the\linebreak{}\mintinline{text}|ConfigureServices| method.
 Controllers are also registered in a~similar way using the~\mintinline{csharp}|services.AddControllers()| method does an automatic registration of all controllers.
 Services and repositories are registered using \mintinline{csharp}|services.AddScopped<InterfaceType, ImplementationType>()|.
 
-Setting up configurations for the~game is also made in the~\mintinline{text}|ConfigureServices|.
+Setting up configurations for the~game is also made in the\linebreak{}\mintinline{text}|ConfigureServices|.
 For configuration a~combination of standard public file \mintinline{text}|appsettings.json| and a~secret file \mintinline{text}|secrets.json| can be used.
 The~structure of the~game's configuration can be seen in the~code~\ref{listing:serverconfig}.
 The~\mintinline{text}|DatabaseUrl| and \mintinline{text}|JwtSecret| should be stored in a~secured file.
@@ -54,10 +54,11 @@ To save the~game progress the~HTTP PUT method on \linebreak\mintinline{text}|{st
 It should contain \linebreak\mintinline{text}|GameProgressDto| data, which includes commands as an~encoded JSON in a~string, speed and size attributes as an~int, and the~completed attribute as a~bool.
 
 Inside of the~controller, the~\mintinline{text}|StoryService| is called with the~\linebreak\mintinline{text}|SaveGameProgress| method.
-Inside the~service, an~eponymous method is called on the~\mintinline{text}|StoryRepository|.
-Inside the~repository, if game progress existed before, it is fetched.
+Inside the~service, an~eponymous method is\linebreak{}called on the~\mintinline{text}|StoryRepository|.
+Inside the~repository, if game progress\linebreak{}existed before, it is fetched.
 If there is already an~existing record, its data get updated.
 Otherwise, a~new \mintinline{text}|GameProgress| object must be created.
+\linebreak
 An important note is that the~created object must contain a~reference to the~user and game entities.
 Therefore they must be fetched and used.
 
@@ -103,7 +104,8 @@ The~tokens were discussed in the~\ref{design:server:tokens} chapter.
 \mintinline{text}|JwtService| service uses the~\mintinline{text}|Microsoft.AspNetCore.Authentication.JwtBearer| library in version 6.0.3 for token generation and validation.
 
 For the~generation, it uses the~user's id as an~id claim, expiration is set to seven days, and it is signed using the~\mintinline{text}|HmacSha256Signature| algorithm.
-Mentioned and other data create the~\mintinline{text}|SecurityTokenDescriptor| and the~\mintinline{text}|JwtSecurityTokenHandler| then creates the~token from it.
+\linebreak
+Mentioned and other data create the~\mintinline{text}|SecurityTokenDescriptor| and the\linebreak{}\mintinline{text}|JwtSecurityTokenHandler| then creates the~token from it.
 
 Validation of the~token uses \mintinline{text}|ValidateToken()| from the~\linebreak\mintinline{text}|JwtSecurityTokenHandler| object.
 
@@ -119,4 +121,5 @@ Controllers then can use these claims by accessing \mintinline{text}|User.Claims
 Passwords are hashed using the~\mintinline{text}|BCrypt.Net-Next| library in version 4.0.3.
 The~library provides the~\mintinline{text}|BCrypt| object that has a~method \mintinline{text}|HashPassword()| that hashes a~password with a~generated salt.
 It also provides the~\mintinline{text}|Verify()| method that requires a~password and a~hashed password arguments. 
+\linebreak
 Only hashed passwords are stored in the~database.

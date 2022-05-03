@@ -1,6 +1,7 @@
 \section{Architecture}
 
 A discussion and a~design on the~importance of good architecture must take place to comply with the~non-functional requirement of the~architecture.
+\linebreak
 A good software design is essential to keep the~software's code understandable, simple to extend, and easy to manage.
 That applies to the~structure of all parts of the~software.
 \textcquote{martin_2018_clean_architecture}{Software has two types of value: the~value of its behavior and the~value of its structure.
@@ -19,7 +20,7 @@ Stated and all related reasons combined make software either good or terrible.
 What caused developers to force themselves to write a~working software but with horrible designs?
 Maybe companies that try to save money or release as fast as possible?
 The~actual reason behind that does not matter.
-Writing a~flexible, easily extendable, and easy-to-read code is not more complex than not doing that.
+Writing a~flexible, easily extendable, manageable, and easy-to-read code is not more complex than not doing that.
 \textcquote{martin_2010_clean_code}{Indeed, the~ratio of time spent reading versus writing is well over 10 to 1.
 We are constantly reading old code as part of the~effort to write new code. \dots{}
 [Therefore,] making it easy to read makes it easier to write.}
@@ -40,6 +41,7 @@ Even if developers agree that individual parts of the~code should be written wel
 Because the~same issues that have been discussed in the~scope of individual parts of code also similarly apply to higher levels.
 Choosing the~way of easy solutions now instead of proper design brings the~software into technical debt. 
 \textcquote{martin_2018_clean_architecture}{Good architecture makes the~system easy to~understand, easy to~develop, easy to~maintain, and~easy to~deploy.
+\linebreak
 The~ultimate goal is to~minimize the~lifetime cost of~the~system
 and~to~maximize programmer productivity.}
 
@@ -48,11 +50,11 @@ and~to~maximize programmer productivity.}
 Multiple options should be considered to design the~best approach to create the~desired product.
 There might be one program that handles everything, or multiple programs, that each does separate tasks.
 The~software is often separated into the~server and client parts, no matter the~target platform.
-Analyzed requirements also require cross-platformness, as stated in non-functional requirements.
+Analyzed\linebreak{}requirements also require cross-platformness, as stated in non-functional\linebreak{}requirements.
 Because of that, cross-platformness almost forces the~architecture to divide the~software into multiple parts.
-The~software can be delivered as individual programs to each targeted platform.
+The~software can be delivered as \mbox{individual} programs to each targeted platform.
 Also, a~shared functionality can be extracted into a~separate part.
-The~question is how many parts the~software should contain to offer the~best value and be the~easiest to develop.
+The~question is how many parts the~software should contain to offer the~best value and be the~easiest\linebreak{}to develop.
 
 The~standard way of doing such software is to divide the~software into two parts: client and server.
 A client part mainly handles the~aspect of displaying UI (user interface) to users.
@@ -65,7 +67,7 @@ This way, the~software can have a~client for web, desktop, and mobile where all 
 That is very economical and also provides the~integrity of offered functionalities.
 
 There are many ways in which client applications can be implemented.
-Implementation strategies can also be divided into two types.
+According to~\cite{a2020_difference}, implementation strategies can also be divided into two types.
 There are thick clients and thin clients.
 Both of them provide benefits and disadvantages, and it is up to the~software designer to determine which type would fit the~current case the~most.
 The~difference between them is which processes the~work, a~client or a~server?
@@ -73,13 +75,13 @@ The~difference between them is which processes the~work, a~client or a~server?
 Thin clients are designed to be small.
 They usually process only the~data they have to, sending all extra data to a~server to process.
 That might make thin clients easy to install, as they are usually smaller.
-The~benefits of this approach might be that a~client application can be run almost anywhere, no matter the~hardware specifications, because the~thin client only displays the~data, and the~actual processing and work happen in a~server application.
+The~benefits of this approach might be that a~client application can be run almost anywhere, no matter the~hardware specifications, because the~thin client only\linebreak{}displays the~data, and the~actual processing and work happen in\linebreak{}a~server application~\cite{a2020_difference}.
 The~disadvantages are that users often must rely on their internet connection, as most servers are in a~different network.
 
 Thick clients are designed to be self-sufficient.
 They usually use a~server application only as a~middleware that handles storing and fetching data from the~database.  
 Thick clients handle and process most of the~data inside of the~client.
-The~benefits of this approach are that even if the~client application loses an~internet connection or does not have one at all at the~moment, the~application can still do its work.
+The~benefits of this approach are that even if the~client application loses an~internet connection or does not have one at all at the~moment, the~application can still do its work~\cite{a2020_difference}.
 And the~data can be stored, synced, or verified later when the~internet connection is restored.
 The~disadvantage that thick clients might face is that all versions of clients must implement all the~features that force developers to reinvent the~wheel.
 
@@ -96,7 +98,7 @@ The~client part should process all UI-related functionality and game-related pro
 As software development evolved and improved, new ways of designing and new architectures appeared and tried a~battle against time.
 As mentioned in~\cite{a2021_clean_architecture_blog}, many architectures of systems try to achieve similar goals.
 The~most common primary goal of architectures is to address the~separation of concerns.
-Architectures like Hexagonal Architecture, Onion Architecture, and Clean Architecture separate concerns into different software layers.
+Architectures like Hexagonal Architecture, Onion Architecture, and Clean \mbox{Architecture} separate concerns into different software layers.
 Such architectures and their layers should be independent of UI, frameworks, databases, or other external tools.
 If architecture depends on one of those things, it would significantly limit its abilities, which is not desirable.
 Architecture should be generic and should not compromise with specific tools.
@@ -152,15 +154,20 @@ And interface segregation principle that explains that implementation of things 
     \item[Single-responsibility principle] \textcquote[p.~57--59]{martin_2018_clean_architecture}{An active corollary to 
 Conway's law:\linebreak
 The~best structure for a~software system is heavily influenced
-by the~social structure of the~organization that uses it so that
+by the \mbox{social} structure of the~organization that uses it so that
 each software module has one, and only one, reason to change.}
+
+\pagebreak
+
     \item[Open--closed principle] \textcquote[p.~57--59]{martin_2018_clean_architecture}{Bertrand Meyer made this principle famous\linebreak in~the~1980s.
 The~gist is that for software systems to be easy to change,
 they must be designed to allow the~behavior of those systems to be changed by~adding new code, rather than changing existing code.}
+
     \item[Liskov substitution principle] \textcquote[p.~57--59]{martin_2018_clean_architecture}{Barbara Liskov's famous definition of subtypes, from~1988.
     In short, this principle says that to build software systems from interchangeable parts, those parts must adhere to a~contract that allows those parts to be substituted one for another.}
-    \item[Interface segregation principle] \textcquote[p.~57--59]{martin_2018_clean_architecture}{This principle advises
-software designers to avoid depending on things that they don't use.}
-    \item[Dependency inversion principle] \textcquote[p.~57--59]{martin_2018_clean_architecture}{The~code that implements high-level policy should not depend on the~code that implements low-level details.
+
+    \item[Interface segregation principle] \textcquote[p.~57--59]{martin_2018_clean_architecture}{This principle advises software designers to avoid depending on things that they don't use.}
+
+    \item[Dependency inversion principle] \textcquote[p.~57--59]{martin_2018_clean_architecture}{The~code that implements high-level\linebreak{}policy should not depend on the~code that implements low-level details.
 Rather, details should depend on policies.}
 \end{description}

@@ -4,11 +4,12 @@ The~game's principle is to fulfill the~individual game missions with the~trainin
 Because the~game is designed as an~educational game, users must first register.
 
 The~game contains separate courses called stories.
-The~story contains several missions.
+The~story contains\linebreak{}several missions.
 These can be of different types: storytelling, learning, and game.
 The~goal is to gradually go through the~missions, read the~story in the~storytelling missions, and get used to it.
 Storytelling missions have step-by-step messages to structure the~story.
 In learning missions, the~goal is to learn information and new concepts and terms or improve on them.
+\linebreak
 The~information in these missions should be more comprehensive and may overlap.
 Game missions are used to test the~acquired knowledge, understand the~task, come up with solutions, and overcome the~challenge.
 
@@ -19,13 +20,13 @@ However, there is no single correct solution.
 In addition, the~command blocks must be valid, i.e., all their mandatory attributes must be set.
 There are several types of command blocks.
 
-Command \mintinline{text}|move <direction>| moves Karel one square in the~chosen direction.
+Command \mintinline{text}|move <direction>| moves Karel one square in the~chosen\linebreak{}direction.
 However, Karel can only move through the~boxes designated for this purpose.
 For example, it must not hit a~wall, outside the~grid, water, etc.
 If Karel manages to hit such a~square, the~game ends with an~error.
 
 With the~\mintinline{text}|put mark| command Karel places one mark on the~square he is standing on.
-However, there cannot be unlimited tags in a~square.
+However, there cannot be an~unlimited number of marks in a~square.
 If Karel tries to put a~mark on a~square where there is no more space, the~game ends with an~error.
 
 With the~\mintinline{text}|grab mark| command Karel takes the~mark from the~square he is standing on.
@@ -39,13 +40,13 @@ Additional commands are nested in this command.
 These will only be performed if the~business is evaluated successfully.
 If the~condition is not evaluated successfully, the~command and the~nested commands are skipped.
 
-The~\mintinline{text}|while <condition>| command works similarly to the~\mintinline{text}|if <condition>| command.
+The~\mintinline{text}|while <condition>| command works similarly to the~command\linebreak{}\mintinline{text}|if <condition>|.
 The~difference is that Karel repeats the process as long as the~condition is met.
 If the~condition fails the~first time, the~statement is not executed, and no nested statements are executed.
 
 Using the~appropriate commands correctly makes it possible to compose a~tree structure of command blocks that solve the~given game mission.
-After pressing the~play button, the~game evaluation starts.
-The~evaluation is stepped through, and the~player has the~opportunity to see which current command is being executed.
+\mbox{After} pressing the~play button, the~game evaluation starts.
+The~evaluation is\linebreak{}stepped through, and the~player has the~opportunity to see which current command is being executed.
 The~player also has the~opportunity to see where Karel is and which other squares are updated, i.e., where the~number of marks has changed.
 The~player can stop the~game by pressing the~stop button. 
 
@@ -55,6 +56,6 @@ The~speed attribute indicates how many times any block has been used.
 
 The~final dialog will be displayed if an~error is encountered during the~evaluation or if the~game is evaluated successfully.
 This dialog takes two forms, either successful or unsuccessful.
-The~successful dialog displays a~success message and the~status of the~optional size and speed attributes.
-These attributes have a~specified limit.
+The~successful dialog displays a~success \mbox{message} and the~status of the~optional size and speed attributes.
+These \mbox{attributes} have a~specified limit.
 If a~player scores better than these limits, they receive a~bonus point for each attribute.

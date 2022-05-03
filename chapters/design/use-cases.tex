@@ -30,7 +30,7 @@ This use case starts when an~actor navigates to the~sign-up screen or activates 
 
 \begin{enumerate}
     \item The~game navigates the~actor to the~sign-up screen.
-    \item The~actor fills in their username, real name, email, password, and description into text inputs.
+    \item The~actor fills in their username, real name, email, password, and\linebreak{}description into text inputs.
     \item The~game determines the~validity of the~actor's data.
     \begin{enumerate}
         \item If no issues were found, the~game signs in the~actor and navigates them to their profile screen.
@@ -73,7 +73,7 @@ This use case starts when an~actor activates the~sign-out button.
 This use case describes viewing the~publicly available game information and other publicly available screens like the~main screen and about-us screen and its subscreens.
 It can be used by an~Anonymous User actor, which also extends the~use to the~Player actor.
 
-This use case starts when an~actor navigates to the~main screen, about-us screen, or its subscreens, activates the~main-screen button, or navigates to or activates any other screen or buttons, leading to screens with publicly available information.
+This use case starts when an~actor navigates to the~main screen, \mbox{about-us} screen, or its subscreens, activates the~main-screen button, or navigates to or activates any other screen or buttons, leading to screens with publicly available information.
 
 \subsubsection*{Scenario A~--- Main Screen}
 
@@ -82,10 +82,10 @@ This use case starts when an~actor navigates to the~main screen, about-us screen
     \item There, the~actor can view the~information.
 \end{enumerate}
 
-\subsubsection*{Scenario B~--- About Us Screen}
+\subsubsection*{Scenario B~--- About-Us Screen}
 
 \begin{enumerate}
-    \item The~game navigates the~actor to the~about us screen (or one of its corresponding subscreens).
+    \item The~game navigates the~actor to the~about-us screen (or one of its \mbox{corresponding} subscreens).
     \item There, the~actor can view the~information.
 \end{enumerate}
 
@@ -118,7 +118,7 @@ This use case starts when an~actor navigates to the~statistics screen or activat
 \pagebreak
 \subsection{View Courses}
 
-This use case describes viewing a~list of game courses~--- called stories~---, a~specific story, and a~list of the~story's missions.
+This use case describes viewing a~list of game courses~--- called stories~--- a~specific story, and a~list of the~story's missions.
 A Player actor can only use it.
 If an~actor, not a~Player, tries to activate the~use case, they are redirected to the~sign-in screen.
 
@@ -149,10 +149,10 @@ This scenario starts when, on the~story screen, an~actor activates the~mission's
 \begin{enumerate}
     \item The~game displays a~popup containing additional data about the~mission.
     It displays the~mission's name and description.
-    \item If it is a~storytelling mission, a~\textquote{read} button is displayed.
-    \item If it is a~learning mission, a~\textquote{learn} button is displayed.
-    \item If it is a~game mission, a~\textquote{play} button is displayed.
-    \item the~actor can activate the~displayed button to leave the~screen.
+    \item If it is a~storytelling mission, a~\textquote*{read} button is displayed.
+    \item If it is a~learning mission, a~\textquote*{learn} button is displayed.
+    \item If it is a~game mission, a~\textquote*{play} button is displayed.
+    \item The~actor can activate the~displayed button to leave the~screen.
 \end{enumerate}
 
 \pagebreak
@@ -171,8 +171,8 @@ This scenario starts when an~actor navigates to the~storytelling mission or acti
 \begin{enumerate}
     \item The~game navigates the~actor to the~storytelling mission screen.
     \item The~actor is presented with a~list of texts that can be shown step by step by clicking the~next button.
-    \item The~back-to-story button is displayed after the~actor progresses through all the~texts.
-    \item Using the~back-to-story button, the~actor can leave the~screen to the~mission's story screen.
+    \item The~\textquote*{Back to story} button is displayed after the~actor progresses through all the~texts.
+    \item Using the~\textquote*{Back to story} button, the~actor can leave the~screen to the~mission's story screen.
 \end{enumerate}
 
 \subsubsection*{Scenario B~--- Learning Mission}
@@ -182,8 +182,8 @@ This scenario starts when an~actor navigates to the~learning mission or activate
 \begin{enumerate}
     \item The~game navigates the~actor to the~learning mission screen.
     \item The~actor is presented with a~learning text.
-    \item A~back-to-story button is displayed.
-    \item Using the~back-to-story button, the~actor can leave the~screen to the~mission's story screen.
+    \item The~\textquote*{Back to story} button is displayed.
+    \item Using the~\textquote*{Back to story} button, the~actor can leave the~screen to the~mission's story screen.
 \end{enumerate}
 
 \subsubsection*{Scenario C~--- Game Mission}
@@ -192,7 +192,7 @@ This scenario starts when an~actor navigates to the~game mission or activates th
 
 \begin{enumerate}
     \item The~game navigates the~actor to the~game mission screen.
-    \item The~actor is presented with a~game grid, command list view, and buttons.
+    \item The~actor is presented with a~game grid, command list view, and buttons that control the~mission.
     \item The~user can add or move commands, run or stop the~current game or save the~current game~--- as described in custom use cases.
 \end{enumerate}
 
@@ -277,11 +277,12 @@ Being on the~game mission screen with a~game in progress is a~precondition of th
 \end{table}
 
 Use cases organize functional requirements. 
-An overview of the~implementation of use cases by functional requirements can be seen in table~\ref{table:usecases-requirements}.
+An overview of the~implementation of use cases by functional requirements can be seen in the table~\ref{table:usecases-requirements}.
 
 Use cases distinguish two actors, an~Anonymous User and a~Player.
+\linebreak
 The~Player actor is an~extension of the~Anonymous User actor.
-The~competence of both actors and relationships of individual use cases can be seen in the~figure of the~figure~\ref{fig:usecasediagram}.
+The~competence of both actors and relationships of individual use cases can be seen in the~figure~\ref{fig:usecasediagram}.
 
 \begin{figure}
     \centering

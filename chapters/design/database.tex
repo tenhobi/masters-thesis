@@ -1,6 +1,6 @@
 \section{Database}
 
-In this section, there are discussions about types of databases, SQL vs. NoSQL, inheritance, and conceptual schema.
+In this section, there are discussions about types of databases, SQL vs.\linebreak{}NoSQL, inheritance, and conceptual schema.
 
 A database is a~collection of data stored in a~system.
 They are used for the~persistent storage of information from applications.
@@ -8,6 +8,8 @@ According to software requirements, the~data is well-organized and offers many a
 
 According to~\cite{a2018_difference_db}, one of the~most critical decisions is choosing the~right type of database and the~correct database system.
 Databases can be relational (SQL) and non-relational (NoSQL).
+
+\pagebreak
 
 Relational databases mainly use the~SQL (Structured Query Language) language.
 It is a~declarative query language that allows performing complex queries~\cite{a2018_difference_db}.
@@ -18,7 +20,7 @@ An example of such a~database is PostgreSQL.
 
 Non-relational databases are of many kinds and types.
 They have a~dynamic schema and are suitable for hierarchic data storage~\cite{a2018_difference_db}.
-NoSQL databases are horizontally scalable, allowing to handle a~more significant amount of workload by using another server.
+NoSQL\linebreak{}databases are horizontally scalable, allowing to handle a~more significant amount of workload by using another server.
 These databases are based on CAP: consistency, availability, partition tolerance.
 Examples of NoSQL databases are Neo4j and MongoDB.
 
@@ -49,7 +51,7 @@ The~\mintinline{text}|Game_mission| entity extends entity \mintinline{text}|Miss
 
 The~\mintinline{text}|Learning_mission| entity extends entity \mintinline{text}|Mission| and has attributes \mintinline{text}|data|, and \mintinline{text}|is_story|.
 
-The~\mintinline{text}|Game_progress| entity has primary key \mintinline{text}|id| and has attributes \mintinline{text}|commands|, \mintinline{text}|speed|, \mintinline{text}|size|, and \mintinline{text}|completed|.
+The~\mintinline{text}|Game_progress| entity has primary key \mintinline{text}|id| and has attributes\linebreak{}\mintinline{text}|commands|, \mintinline{text}|speed|, \mintinline{text}|size|, and \mintinline{text}|completed|.
 
 From the~relations, the~\mintinline{text}|Story| entity can have multiple \mintinline{text}|Mission|s.
 The~\mintinline{text}|User| entity and \mintinline{text}|Game_mission| can have multiple \mintinline{text}|Game_progress|.
@@ -60,6 +62,8 @@ The~\mintinline{text}|User| entity and \mintinline{text}|Game_mission| can have 
     \caption{Conceptual Schema}
     \label{fig:design:conceptualschema}
 \end{figure}
+
+\pagebreak
 
 \subsection{Inheritance}
 
@@ -81,5 +85,6 @@ The~third approach is a~table per concrete type~\cite{a2010_enterprise}.
 This approach is similar to the~table per type, but it does not create tables for abstract classes.
 
 Determining what approach is the~best is a~matter of specific needs.
-In the~developed game, the~second approach will be used~--- the~table per type.
+\linebreak
+In the~developed game, the~second approach will be used~--- the~table\linebreak{}per type.
 That means no attributes will be duplicated, and all hierarchy will be preserved.

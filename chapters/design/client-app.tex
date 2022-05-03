@@ -37,10 +37,10 @@ Its purpose is to protect users and their cookies and other stuff stored in the~
 Not enforcing the~same-origin policy could be a~potential risk for applications, e.g., banks that use cookies to verify that you are who you are, and using some malicious software attackers could dry out bank accounts.
 That is not an~issue on desktop and mobile because cookies are stored inside applications' storage, and other\linebreak{}applications cannot access their cookies; therefore, these data can not be stolen.
 The~essential idea from this concept is that this is not the~applications' fault; it is the~browsers' fault.
-Servers set the~\mintinline{text}|Access-Control-Allow-Origin| header, and if matched with the~origin, a~browser allows the~application\linebreak{}to view and process its response. The~header must be in format
-\linebreak
-\mintinline{text}/Access-Control-Allow-Origin: <origin> | */.
-The~header can also be set with wildcards to relax the~CORS specification.
+Servers set the~\mintinline{text}|Access-Control-Allow-Origin| header, and if matched with the~origin, a~browser allows the~application\linebreak{}to view and process its response.
+
+The~header format \mintinline{text}/Access-Control-Allow-Origin: <origin> | */ must be used.
+It can also be set with wildcards to relax the~CORS specification.
 Communication between an~application and a~server with same-origin and cross-origin requests and their responses can be seen in the~figure~\ref{fig:design:cors-mechanism}.
 
 \subsection{Frameworks}

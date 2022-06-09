@@ -32,7 +32,7 @@
 %\setsansfont{Technika-Kniha}
 
 % vypneme navigační panel beamer (pro zapnutí zakomentujeme)
-%\beamertemplatenavigationsymbolsempty
+\beamertemplatenavigationsymbolsempty
 
 % vygenerujeme slajdy s poznámkami -- ty si můžete vytisknout a mít je na obhajobu s sebou (pokud zapomenete slova, nebo kdyby nefungovalo promítání z nějakého důvodu)
 %\setbeameroption{show notes}
@@ -40,16 +40,18 @@
 % další balíčky
 \usepackage{graphicx}
 \usepackage{minted}
+\usepackage{csquotes}
+\usepackage{multimedia}
 \usepackage{hyperref}
 \usepackage{tikz}
 \usetikzlibrary{chains,fit,shapes}
 
 % Údaje o prezentaci
-\title[Kooperativní mobilní multiplatformní hra]{Kooperativní mobilní multiplatformní hra}
-\subtitle{Bakalářská práce}
+\title[King Karel -- Logická hra na výuku programování]{King Karel -- Logická hra na výuku programování}
+\subtitle{Diplomová práce}
 \institute[FIT ČVUT v~Praze]{Fakulta informačních technologií \\ České vysoké učení technické v~Praze}
-\author[J. Bittner]{Jan Bittner \\ Vedoucí práce: Ing. Marek Suchánek}
-\date{30. 6. 2020}
+\author[J. Bittner]{Bc. Jan Bittner \\ Vedoucí práce: Ing. Jan Matoušek}
+\date{7. 6. 2022}
 \titlegraphic{\includegraphics[width=.1\textwidth]{assets/slides/logo-cvut}}
 
 \begin{document}
@@ -62,42 +64,58 @@
   %  \tableofcontents %generuje se automaticky z section, subsection, subsubsection
   %\end{frame}
 
-  \begin{frame}{Motivace volby tématu}
+  \begin{frame}{Motivace}
     \begin{center}
-      77 \% uživatelů mobilních zařízeních hraje hry.
-      \vskip5mm
-      Vytvoření mobilní hry pro více platforem\\
-      ve formě open-source řešení\\
-      se zaměřením na snadnou rozšiřitelnost a~udržitelnost.
+      \begin{itemize}
+        \item vzdělávání
+        \item děti a mladiství
+        \item gamifikace
+        \item osobní zkušenosti
+      \end{itemize}
     \end{center}
   \end{frame}
 
   \begin{frame}{Cíle práce}
     \begin{itemize}
-      \item analýza podobných aplikací a~trendů
-      \item analýza technologií pro vývoj
-      \item návrh hry a~herní logiky
-      \item návrh a~implementace hry
-      \item otestování funkčnosti
+      \item analýza podobných her na výuku programování
+      \item analýza technologií
+      \item návrh architektury, hry a~herní logiky
+      \item implementace herního prototypu
+      \item uživatelské testování
     \end{itemize}
   \end{frame}
 
   \begin{frame}{Technologie}
     \begin{itemize}
-      \item \textbf{Flutter} -- multiplatformní framework
-      \item \textbf{Bloc} -- knihovna pro správu stavů
+      \item \textbf{Dart, Flutter} -- klientská aplikace
+      \item \textbf{C\#, ASP.NET Web API} -- serverová aplikace
       \item \textbf{Clean Architecture} -- architektura
-      \item \textbf{Cloud Firestore} -- NoSQL databáze
+      \item \textbf{PostgreSQL} -- databáze
     \end{itemize}
+  \end{frame}
+
+  \begin{frame}{Ukázka hry}
+    \begin{center}
+      \includegraphics[width=.6\textwidth]{assets/slides/kingkarel_story}
+    \end{center}
+  \end{frame}
+
+  \begin{frame}{Ukázka hry}
+    \begin{center}
+      \includegraphics[width=.6\textwidth]{assets/slides/kingkarel_game}
+    \end{center}
+  \end{frame}
+
+  \begin{frame}{Ukázka hry}
+    \begin{center}
+      ... video
+    \end{center}
   \end{frame}
 
   \begin{frame}{Clean Architecture}
     \begin{center}
-      \includegraphics[width=.6\textwidth]{assets/slides/logo-clean-architecture}
+      \includegraphics[width=.4\textwidth]{assets/slides/logo-clean-architecture}
     \end{center}
-  \end{frame}
-
-  \begin{frame}
       \begin{center}
         {\large ``The way you keep software soft is
       to leave as many options open as possible,
@@ -110,73 +128,30 @@
       \end{center}
   \end{frame}
 
-  % TODO: upravit obrázek
-  \begin{frame}{Návrh hry}
+  \begin{frame}{Client}
     \begin{center}
-      \includegraphics[width=.6\textwidth]{assets/slides/event-loop}
+      \includegraphics[width=.57\textwidth]{assets/slides/clientarchitecture}
     \end{center}
   \end{frame}
 
-  \begin{frame}
-    \begin{columns}
-      \begin{column}{.25\textwidth}
-        \begin{center}
-          \includegraphics[width=.9\textwidth]{assets/slides/screen-a1}
-        \end{center}
-      \end{column}
-      \begin{column}{.25\textwidth}
-        \begin{center}
-          \includegraphics[width=.9\textwidth]{assets/slides/screen-a2}
-        \end{center}
-      \end{column} 
-      \begin{column}{.25\textwidth}
-        \begin{center}
-          \includegraphics[width=.9\textwidth]{assets/slides/screen-a3}
-        \end{center}
-      \end{column}
-    \end{columns}
-  \end{frame}
-
-  \begin{frame}
-    \begin{columns}
-      \begin{column}{.25\textwidth}
-        \begin{center}
-          \includegraphics[width=.9\textwidth]{assets/slides/screen-b1}
-        \end{center}
-      \end{column}
-      \begin{column}{.25\textwidth}
-        \begin{center}
-          \includegraphics[width=.9\textwidth]{assets/slides/screen-b2}
-        \end{center}
-      \end{column}
-      \begin{column}{.25\textwidth}
-        \begin{center}
-          \includegraphics[width=.9\textwidth]{assets/slides/screen-b3}
-        \end{center}
-      \end{column}
-      \begin{column}{.25\textwidth}
-        \begin{center}
-          \includegraphics[width=.9\textwidth]{assets/slides/screen-b4}
-        \end{center}
-      \end{column}
-    \end{columns}
+  \begin{frame}{Server}
+    \begin{center}
+      \includegraphics[width=.7\textwidth]{assets/slides/serverarchitecture}
+    \end{center}
   \end{frame}
 
   \begin{frame}{Shrnutí}
     \begin{itemize}
       \item Všechny cíle splněny.
-      \item Úspěšný návrh a~vytvoření funčního řešení hry.
-      \item Úspěšné cílení na snadnou rozšířitelnost.
-      \item Přínos aplikace pro obohacení komunity Flutter.
-      \item Spokojenost uživatelů při testování aplikace.
+      \item Návrh a~vytvoření funčního prototypu.
+      \item Spokojenost uživatelů při testování.
       \item Mnoho možností rozšíření a~adaptace.
     \end{itemize}
   \end{frame}
 
   \begin{frame}{Zdroje}
     \begin{itemize}
-      \item WEPC. \emph{2020 Video Game Industry Statistics, Trends \& Data} [online]. 2020 [cit. 2020-03-21]. Dostupné z: \url{https://www.wepc.com/news/video-game-statistics}.
-      \item MARTIN, Robert C. \emph{The Clean Architecture} [online]. 2012 [cit. 2020-04-07]. Dostupné z: \url{https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html}.
+      \item MARTIN, Robert C. \emph{The Clean Architecture} [online]. 2012 [cit. 2022-06-01]. Dostupné z: \url{https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html}.
       \item MARTIN, Robert C. \emph{Clean Architecture: A~Craftsman’s Guide to Soft-ware Structure and Design}. Prentice Hall, 2018, s. 140. ISBN 0134494164. Dostupné z: \url{https://www.amazon.com/Clean-Architecture-Craftsmans-Software-Structure-ebook/dp/B075LRM681}. 
     \end{itemize}
   \end{frame}
@@ -189,49 +164,25 @@
 
   \begin{frame}[noframenumbering]{Otázky oponenta}
     Otázka první:
-    V rámci MobX "generování kódu však není nejrychlější" (str. 20),
-    proč neprobíhá tedy generování jen jednou (např. kompilací, transpilací)?
+    Existuje nějaký časový rámec, kdy by měla být hra King Karel dostupná pro~veřejnost?
 
     \vfill
 
-    Odpověď: MobX je knihovna pro správu stavů,
-    která vyžaduje pro svou funkčnost generovaný kód.
-    Objekty knihoven pro správu stavů jsou prostředníkem mezi
-    prezentační a aplikační vrstvou.
-    Při změnách ve třídách těchto knihoven je nutné opakovaně generovat kód,
-    což způsobuje prodlevu mezi rychlým dodáním změn pomocí
-    vlasnosti hot reload frameworku Flutter.
+    Přesný časový rámec zatím není znám.
+    Prototyp však prokázal, že projekt má smysl a proto bude jeho vývoj pokračovat.
+    K plnému vydání hry bude potřeba zejména vylepšit uživatelské rozhraní a přidat další zajímavé prvky.
+    Jelikož bude projekt vyvíjen ve volném čase, očekávám první veřejnou verzi do konce roku 2023.
   \end{frame}
 
   \begin{frame}[noframenumbering]{Otázky oponenta}
     Otázka druhá:
-    Pokud jsou "data v NoSQL databázích nestrukturovány" (str. 25),
-    jak mohou být efektivnější?
+    Existuje editor levelů a bude případně dostupný i pro uživatele?
 
     \vfill
 
     Odpověď:
-    NoSQL databáze mohou být v jistých případech efektivnější,
-    protože umožňují ukládání dat,
-    které nemají předem definovanou strukturu.
-    Data se také často ukládají denormalizovaná,
-    což umožňuje jejich rychlejší čtení.
-    Tyto databáze (například Cloud Firestore) poskytují přívětivé rozhraní
-    včetně real time query.
-  \end{frame}
-
-  \begin{frame}[noframenumbering]{Otázky oponenta}
-    Otázka třetí: Skutečně "všechna zařízení se systémy Android a iOS" (str. 26) obsahují akcelerometr?
-
-    \vfill
-
-    Odpověď:
-    V kontextu práce, která je mířená na moderní mobilní zařízení
-    (mobily, tablety),
-    obsahují všechna (až na teoretickou množinu výjimek)
-    zařízení se systémy Android a iOS akcelerometr.
-    Tento senzor je totiž velmi univerzální,
-    oproti jiným senzorům (gyroskop) šetrný k baterii
-    a najde uplatnění v široké řadě běžných procesů uživatele (rotace displeje).
+    Ne všechny funkcionality jsou v prototypu implementovány, ale přesto je jich řada navíc popsána v kapitole 2.1.7 Future Features.
+    Kapitola 2.1.7.4 Creator Screen přímo zmiňuje funkcionalitu totožnou s \enquote{editorem levelů}.
+    Zda bude tento editor, respektive vytváření obsahu obecně, dostupný všem koncovým uživatelům, zatím není jisté.
   \end{frame}
 \end{document}
